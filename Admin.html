@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dash Edu-Tend System</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  </head>
+  <body class="admin-dashboard">
+    <div class="sidebar nav" id="sidebar">
+      <h2>Admin Dashboard</h2>
+      <nav>
+        <a href="#" class="lecturer-nav-item active" data-target="dashboard">
+          <i class="mr-3 fas fa-tachometer-alt"></i> Dashboard
+        </a>
+        <a href="#" class="lecturer-nav-item" data-target="calendar">
+          <i class="mr-3 fas fa-calendar"></i> Calendar
+        </a>
+        <a href="#" class="lecturer-nav-item" data-target="users">
+          <i class="mr-3 fas fa-users"></i> Users
+        </a>
+        <a href="#" class="lecturer-nav-item" data-target="lecturers">
+          <i class="mr-3 fas fa-chalkboard-teacher"></i> Lecturers
+        </a>
+        <a href="#" class="lecturer-nav-item" data-target="students">
+          <i class="mr-3 fas fa-user-graduate"></i> Students
+        </a>
+        <a
+          href="adminc.html"
+          class="lecturer-nav-item block px-4 text-gray-700 hover:bg-indigo-50 hover:text-indigo600 rounded"
+          data-target="courses"
+        >
+          <i class="mr-3 fas fa-book"></i> Courses
+        </a>
+        <a href="#" class="lecturer-nav-item" data-target="attendance">
+          <i class="mr-3 fas fa-check"></i> Attendance
+        </a>
+        <a href="#" class="lecturer-nav-item" data-target="settings">
+          <i class="mr-3 fas fa-cog"></i> Settings
+        </a>
+        <a href="index.html" class="lecturer-nav-item" data-target="logout">
+          <i class="mr-3 fas fa-sign-out-alt"></i> Logout
+        </a>
+      </nav>
+    </div>
+
+    <div class="main-content">
+      <header class="header">
+                <!-- Enhanced Mobile Sidebar Toggle -->
+        <div class="toggle">
+          <button id="sidebar-toggle" class="toggle-btn" aria-label="Open Menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        
+        <!-- Enhanced Mobile Sidebar -->
+        <div class="sidebar2" id="sidebar2">
+          <div class="sidebar-header">
+            <div class="sidebar-title">
+              <h2 class="h1">Admin Dashboard</h2>
+              <p class="h2">EdUTEND System</p>
+            </div>
+            <button id="sidebar-close" class="sidebar-close-btn" aria-label="Close Menu">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          
+          <nav class="mobile-nav">
+            <a href="#" class="lecturer-nav-item active" data-target="dashboard">
+              <i class="fas fa-tachometer-alt"></i>
+              <span>Dashboard</span>
+            </a>
+            <a href="#" class="lecturer-nav-item" data-target="calendar">
+              <i class="fas fa-calendar"></i>
+              <span>Calendar</span>
+            </a>
+            <a href="#" class="lecturer-nav-item" data-target="users">
+              <i class="fas fa-users"></i>
+              <span>Users</span>
+            </a>
+            <a href="#" class="lecturer-nav-item" data-target="lecturers">
+              <i class="fas fa-chalkboard-teacher"></i>
+              <span>Lecturers</span>
+            </a>
+            <a href="#" class="lecturer-nav-item" data-target="students">
+              <i class="fas fa-user-graduate"></i>
+              <span>Students</span>
+            </a>
+            <a href="adminc.html" class="lecturer-nav-item" data-target="courses">
+              <i class="fas fa-book"></i>
+              <span>Courses</span>
+            </a>
+            <a href="#" class="lecturer-nav-item" data-target="attendance">
+              <i class="fas fa-check"></i>
+              <span>Attendance</span>
+            </a>
+            <a href="#" class="lecturer-nav-item" data-target="settings">
+              <i class="fas fa-cog"></i>
+              <span>Settings</span>
+            </a>
+            <a href="index.html" class="lecturer-nav-item logout-item" data-target="logout">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Logout</span>
+            </a>
+          </nav>
+          
+          <!-- Mobile User Info -->
+          <div class="mobile-user-info">
+            <div class="user-avatar">AD</div>
+            <div class="user-details">
+              <p class="user-name">Admin</p>
+              <p class="user-role">System Administrator</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Header Content -->
+        <div class="user-info">
+          <span>Welcome, Admin</span>
+        </div>
+        <div class="header-actions"></div>
+      </header>
+
+      <div id="dashboard" class="section">
+        <h3>Dashboard Overview</h3>
+        <div class="stats-grid">
+          <div class="stat-box">Total Students: <br /><span>0</span></div>
+          <div class="stat-box">Total Lecturers: <br /><span>0</span></div>
+          <div class="stat-box">Total Courses: <br /><span>0</span></div>
+          <div class="stat-box">Total Attendance: <br /><span>0</span></div>
+        </div>
+      </div>
+
+      <div id="calendar" class="section">
+        <h3>Calendar</h3>
+        <div class="calendar" id="admin-calendar">
+          <div class="header">
+            <div class="month" id="adm-calendar-month">Month YYYY</div>
+            <div class="btns">
+              <div class="btn" id="adm-calendar-prev">&#10094;</div>
+              <div class="btn" id="adm-calendar-next">&#10095;</div>
+            </div>
+          </div>
+          <div class="weekdays" id="adm-calendar-weekdays"></div>
+          <div class="days" id="adm-calendar-days"></div>
+        </div>
+
+        <div class="settings-group mt-16">
+          <h4>Event Controls</h4>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="adm-filter-type">Type</label>
+              <select id="adm-filter-type">
+                <option value="all">All</option>
+                <option value="Lecture">Lecture</option>
+                <option value="Exam">Exam</option>
+                <option value="Meeting">Meeting</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="adm-filter-course">Course</label>
+              <input type="text" id="adm-filter-course" placeholder="e.g., HCI-201" />
+            </div>
+            <div class="form-field">
+              <label for="adm-filter-search">Search</label>
+              <input type="text" id="adm-filter-search" placeholder="Search title/notes" />
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="adm-filter-apply" type="button">Apply Filters</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <h4>Add / Edit Event <span id="adm-selected-date-label" class="muted"></span></h4>
+          <div class="form-grid">
+            <input type="hidden" id="adm-event-id" />
+            <div class="form-field">
+              <label for="adm-event-title">Title</label>
+              <input type="text" id="adm-event-title" placeholder="Event title" />
+            </div>
+            <div class="form-field">
+              <label for="adm-event-time">Time</label>
+              <input type="time" id="adm-event-time" />
+            </div>
+            <div class="form-field">
+              <label for="adm-event-type">Type</label>
+              <select id="adm-event-type">
+                <option value="Lecture">Lecture</option>
+                <option value="Exam">Exam</option>
+                <option value="Meeting">Meeting</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="adm-event-course">Course</label>
+              <input type="text" id="adm-event-course" placeholder="e.g., HCI-201" />
+            </div>
+            <div class="form-field">
+              <label for="adm-event-lecturer">Lecturer</label>
+              <input type="text" id="adm-event-lecturer" placeholder="e.g., Dr Zinhle" />
+            </div>
+            <div class="form-field full-width">
+              <label for="adm-event-notes">Notes</label>
+              <textarea id="adm-event-notes" rows="2" placeholder="Additional details..."></textarea>
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="adm-event-save" type="button">Save</button>
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="adm-event-reset" type="button">Reset</button>
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="adm-event-delete" type="button">Delete</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <h4>Events for <span id="adm-events-date">Select a date</span></h4>
+          <ul id="adm-events-list"></ul>
+        </div>
+
+        <div class="report-actions">
+          <button class="btn" id="adm-export-json"><i class="fa fa-file-export"></i> Export JSON</button>
+          <button class="btn" id="adm-import-json"><i class="fa fa-file-import"></i> Import JSON</button>
+          <input type="file" id="adm-import-file" accept="application/json" style="display:none" />
+          <button class="btn" id="adm-clear-all"><i class="fa fa-trash"></i> Clear All</button>
+          <button class="btn" id="adm-print"><i class="fa fa-print"></i> Print</button>
+        </div>
+      </div>
+
+      <div id="users" class="section">
+        <h3>Users</h3>
+        <div class="attendance-toolbar">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="user-filter-role">Role</label>
+              <select id="user-filter-role">
+                <option value="all">All</option>
+                <option value="Admin">Admin</option>
+                <option value="Lecturer">Lecturer</option>
+                <option value="Student">Student</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="user-filter-search">Search</label>
+              <input type="text" id="user-filter-search" placeholder="Name or Email" />
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="user-filter-apply" type="button">Apply</button>
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="user-export" type="button">Export JSON</button>
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="user-import" type="button">Import JSON</button>
+              <input type="file" id="user-import-file" accept="application/json" style="display:none" />
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="attendance-table users-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="users-tbody">
+              <tr><td colspan="4" class="centered-cell">No users found.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="settings-group mt-16">
+          <h4>Add / Edit User</h4>
+          <div class="form-grid">
+            <input type="hidden" id="user-id" />
+            <div class="form-field">
+              <label for="user-name">Full Name</label>
+              <input type="text" id="user-name" placeholder="e.g., Jane Doe" />
+            </div>
+            <div class="form-field">
+              <label for="user-email">Email</label>
+              <input type="email" id="user-email" placeholder="name@example.com" />
+            </div>
+            <div class="form-field">
+              <label for="user-password">Password</label>
+              <input type="password" id="user-password" placeholder="Set or change password" />
+            </div>
+            <div class="form-field">
+              <label for="user-role">Role</label>
+              <select id="user-role">
+                <option value="Admin">Admin</option>
+                <option value="Lecturer">Lecturer</option>
+                <option value="Student">Student</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="user-save" type="button">Save</button>
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="user-reset" type="button">Reset</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="lecturers" class="section">
+        <h3>Lecturers</h3>
+        <div class="attendance-toolbar">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="lecturer-filter-dept">Department</label>
+              <select id="lecturer-filter-dept">
+                <option value="all">All Departments</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Physics">Physics</option>
+                <option value="Engineering">Engineering</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="lecturer-filter-search">Search</label>
+              <input type="text" id="lecturer-filter-search" placeholder="Name or Email" />
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="lecturer-filter-apply" type="button">Apply</button>
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="lecturer-export" type="button">Export JSON</button>
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="lecturer-import" type="button">Import JSON</button>
+              <input type="file" id="lecturer-import-file" accept="application/json" style="display:none" />
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="attendance-table lecturers-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Department</th>
+                <th>Office</th>
+                <th>Phone</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="lecturers-tbody">
+              <tr><td colspan="6" class="centered-cell">No lecturers found.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="settings-group mt-16">
+          <h4>Add / Edit Lecturer</h4>
+          <div class="form-grid">
+            <input type="hidden" id="lecturer-id" />
+            <div class="form-field">
+              <label for="lecturer-name">Full Name</label>
+              <input type="text" id="lecturer-name" placeholder="e.g., Dr Zinhle Smith" />
+            </div>
+            <div class="form-field">
+              <label for="lecturer-email">Email</label>
+              <input type="email" id="lecturer-email" placeholder="name@example.com" />
+            </div>
+            <div class="form-field">
+              <label for="lecturer-password">Password</label>
+              <input type="password" id="lecturer-password" placeholder="Set or change password" />
+            </div>
+            <div class="form-field">
+              <label for="lecturer-dept">Department</label>
+              <select id="lecturer-dept">
+                <option value="Computer Science">Computer Science</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Physics">Physics</option>
+                <option value="Engineering">Engineering</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="lecturer-office">Office</label>
+              <input type="text" id="lecturer-office" placeholder="e.g., Block B, Room 214" />
+            </div>
+            <div class="form-field">
+              <label for="lecturer-phone">Phone</label>
+              <input type="tel" id="lecturer-phone" placeholder="e.g., +27 82 123 4567" />
+            </div>
+            <div class="form-field full-width">
+              <label for="lecturer-bio">Biography</label>
+              <textarea id="lecturer-bio" rows="3" placeholder="Short bio..."></textarea>
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="lecturer-save" type="button">Save</button>
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="lecturer-reset" type="button">Reset</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="students" class="section">
+        <h3>Students</h3>
+        <div class="attendance-toolbar">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="student-filter-year">Year</label>
+              <select id="student-filter-year">
+                <option value="all">All Years</option>
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="4">4th Year</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="student-filter-course">Course</label>
+              <input type="text" id="student-filter-course" placeholder="e.g., HCI-201" />
+            </div>
+            <div class="form-field">
+              <label for="student-filter-search">Search</label>
+              <input type="text" id="student-filter-search" placeholder="Name or Email" />
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="student-filter-apply" type="button">Apply</button>
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="student-export" type="button">Export JSON</button>
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="student-import" type="button">Import JSON</button>
+              <input type="file" id="student-import-file" accept="application/json" style="display:none" />
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="attendance-table students-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Year</th>
+                <th>Course</th>
+                <th>Student ID</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="students-tbody">
+              <tr><td colspan="6" class="centered-cell">No students found.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="settings-group mt-16">
+          <h4>Add / Edit Student</h4>
+          <div class="form-grid">
+            <input type="hidden" id="student-id" />
+            <div class="form-field">
+              <label for="student-name">Full Name</label>
+              <input type="text" id="student-name" placeholder="e.g., John Doe" />
+            </div>
+            <div class="form-field">
+              <label for="student-email">Email</label>
+              <input type="email" id="student-email" placeholder="name@example.com" />
+            </div>
+            <div class="form-field">
+              <label for="student-password">Password</label>
+              <input type="password" id="student-password" placeholder="Set or change password" />
+            </div>
+            <div class="form-field">
+              <label for="student-year">Year</label>
+              <select id="student-year">
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="4">4th Year</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="student-course">Course</label>
+              <input type="text" id="student-course" placeholder="e.g., HCI-201" />
+            </div>
+            <div class="form-field">
+              <label for="student-id-num">Student ID</label>
+              <input type="text" id="student-id-num" placeholder="e.g., 2024001" />
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="student-save" type="button">Save</button>
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="student-reset" type="button">Reset</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+          <div id="attendance" class="section">
+        <h3>Attendance Overview</h3>
+        <div class="attendance-toolbar">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="att-filter-date-from">From</label>
+              <input type="date" id="att-filter-date-from" />
+            </div>
+            <div class="form-field">
+              <label for="att-filter-date-to">To</label>
+              <input type="date" id="att-filter-date-to" />
+            </div>
+            <div class="form-field">
+              <label for="att-filter-course">Course</label>
+              <select id="att-filter-course">
+                <option value="all">All Courses</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="att-filter-lecturer">Lecturer</label>
+              <select id="att-filter-lecturer">
+                <option value="all">All Lecturers</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="att-filter-apply" type="button">Apply Filters</button>
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="att-export" type="button">Export Report</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-icon">📊</div>
+            <div class="stat-content">
+              <div class="stat-label">Total Sessions</div>
+              <div class="stat-value" id="total-sessions">0</div>
+            </div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-icon">✅</div>
+            <div class="stat-content">
+              <div class="stat-label">Present Students</div>
+              <div class="stat-value" id="present-students">0</div>
+            </div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-icon">❌</div>
+            <div class="stat-content">
+              <div class="stat-label">Absent Students</div>
+              <div class="stat-value" id="absent-students">0</div>
+            </div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-icon">📈</div>
+            <div class="stat-content">
+              <div class="stat-label">Attendance Rate</div>
+              <div class="stat-value" id="attendance-rate">0%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="attendance-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Course</th>
+                <th>Lecturer</th>
+                <th>Session</th>
+                <th>Present</th>
+                <th>Absent</th>
+                <th>Rate</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="attendance-tbody">
+              <tr><td colspan="8" class="centered-cell">No attendance records found.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="settings-group mt-16">
+          <h4>Attendance Reports</h4>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="report-type">Report Type</label>
+              <select id="report-type">
+                <option value="summary">Summary Report</option>
+                <option value="detailed">Detailed Report</option>
+                <option value="student">Student Report</option>
+                <option value="course">Course Report</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="report-format">Format</label>
+              <select id="report-format">
+                <option value="pdf">PDF</option>
+                <option value="excel">Excel</option>
+                <option value="csv">CSV</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="generate-report" type="button">Generate Report</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="settings" class="section">
+        <h3>Admin Settings</h3>
+        
+        <div class="settings-group">
+          <h4>System Preferences</h4>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="default-session-duration">Default Session Duration (minutes)</label>
+              <input type="number" id="default-session-duration" placeholder="15" min="5" max="120" />
+            </div>
+            <div class="form-field">
+              <label for="attendance-threshold">Attendance Threshold (%)</label>
+              <input type="number" id="attendance-threshold" placeholder="75" min="0" max="100" />
+            </div>
+            <div class="form-field">
+              <label for="auto-archive-days">Auto Archive After (days)</label>
+              <input type="number" id="auto-archive-days" placeholder="90" min="30" max="365" />
+            </div>
+            <div class="form-field">
+              <label for="timezone">Timezone</label>
+              <select id="timezone">
+                <option value="Africa/Johannesburg">Africa/Johannesburg</option>
+                <option value="UTC">UTC</option>
+                <option value="America/New_York">America/New_York</option>
+                <option value="Europe/London">Europe/London</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <h4>Notifications</h4>
+          <div class="form-grid">
+            <div class="form-field">
+              <label>Email Notifications</label>
+              <div class="checkboxes">
+                <label><input type="checkbox" id="notif-low-attendance" /> Low attendance alerts</label>
+                <label><input type="checkbox" id="notif-session-expiry" /> Session expiry reminders</label>
+                <label><input type="checkbox" id="notif-system-updates" /> System updates</label>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="admin-email">Admin Email</label>
+              <input type="email" id="admin-email" placeholder="admin@example.com" />
+            </div>
+            <div class="form-field">
+              <label for="notification-frequency">Notification Frequency</label>
+              <select id="notification-frequency">
+                <option value="immediate">Immediate</option>
+                <option value="daily">Daily Summary</option>
+                <option value="weekly">Weekly Summary</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <h4>Security</h4>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="current-admin-password">Current Password</label>
+              <input type="password" id="current-admin-password" placeholder="••••••••" />
+            </div>
+            <div class="form-field">
+              <label for="new-admin-password">New Password</label>
+              <input type="password" id="new-admin-password" placeholder="••••••••" />
+            </div>
+            <div class="form-field">
+              <label for="confirm-admin-password">Confirm New Password</label>
+              <input type="password" id="confirm-admin-password" placeholder="••••••••" />
+            </div>
+            <div class="form-field">
+              <label for="session-timeout">Session Timeout (minutes)</label>
+              <input type="number" id="session-timeout" placeholder="30" min="5" max="480" />
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <h4>Data Management</h4>
+          <div class="form-grid">
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="backup-data" type="button">Backup All Data</button>
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="restore-data" type="button">Restore Data</button>
+              <input type="file" id="restore-file" accept=".json" style="display:none" />
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="clear-all-data" type="button">Clear All Data</button>
+            </div>
+            <div class="form-field">
+              <label>&nbsp;</label>
+              <button class="btn" id="export-all" type="button">Export All Data</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn" id="save-settings" type="button">Save Settings</button>
+          <button class="btn" id="reset-settings" type="button">Reset to Defaults</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const navItems = document.querySelectorAll('.lecturer-nav-item');
+        const sections = document.querySelectorAll('.section');
+        // Show dashboard by default
+        sections.forEach(sec => { sec.style.display = sec.id === 'dashboard' ? 'block' : 'none'; });
+        navItems.forEach(item => {
+          item.addEventListener('click', (e) => {
+            const target = item.getAttribute('data-target');
+            if (!target || target === 'logout' || target === 'courses') return; // external or no-op
+            e.preventDefault();
+            sections.forEach(sec => { sec.style.display = (sec.id === target) ? 'block' : 'none'; });
+            navItems.forEach(a => a.classList.remove('active'));
+            item.classList.add('active');
+            if (target === 'calendar') adminRenderCalendar();
+            if (target === 'users') adminRenderUsers();
+            if (target === 'lecturers') adminRenderLecturers();
+            if (target === 'students') adminRenderStudents();
+            if (target === 'attendance') adminRenderAttendance();
+            if (target === 'settings') adminLoadSettings();
+          });
+        });
+
+        // ===== Admin Calendar Logic =====
+        const ADM_WEEKDAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+        const admMonthName = document.getElementById('adm-calendar-month');
+        const admPrevBtn = document.getElementById('adm-calendar-prev');
+        const admNextBtn = document.getElementById('adm-calendar-next');
+        const admWeekdaysEl = document.getElementById('adm-calendar-weekdays');
+        const admDaysEl = document.getElementById('adm-calendar-days');
+        const admSelectedDateLabel = document.getElementById('adm-selected-date-label');
+        const admEventsDate = document.getElementById('adm-events-date');
+        const admEventsList = document.getElementById('adm-events-list');
+
+        const admFilterType = document.getElementById('adm-filter-type');
+        const admFilterCourse = document.getElementById('adm-filter-course');
+        const admFilterSearch = document.getElementById('adm-filter-search');
+        const admFilterApply = document.getElementById('adm-filter-apply');
+
+        const admEventId = document.getElementById('adm-event-id');
+        const admEventTitle = document.getElementById('adm-event-title');
+        const admEventTime = document.getElementById('adm-event-time');
+        const admEventType = document.getElementById('adm-event-type');
+        const admEventCourse = document.getElementById('adm-event-course');
+        const admEventLecturer = document.getElementById('adm-event-lecturer');
+        const admEventNotes = document.getElementById('adm-event-notes');
+        const admEventSave = document.getElementById('adm-event-save');
+        const admEventReset = document.getElementById('adm-event-reset');
+        const admEventDelete = document.getElementById('adm-event-delete');
+
+        const admExportJson = document.getElementById('adm-export-json');
+        const admImportJson = document.getElementById('adm-import-json');
+        const admImportFile = document.getElementById('adm-import-file');
+        const admPrintBtn = document.getElementById('adm-print');
+        const admClearAll = document.getElementById('adm-clear-all');
+
+        let admCalendarCursor = new Date();
+        admCalendarCursor.setDate(1);
+        let admSelectedDate = null;
+
+        function admPad2(n){ return n < 10 ? '0' + n : String(n); }
+        function admFmtDate(d){ return `${d.getFullYear()}-${admPad2(d.getMonth()+1)}-${admPad2(d.getDate())}`; }
+        function admParseStore(){ try { return JSON.parse(localStorage.getItem('adminCalendarEvents')||'{}'); } catch { return {}; } }
+        function admWriteStore(obj){ localStorage.setItem('adminCalendarEvents', JSON.stringify(obj)); }
+
+        function adminRenderWeekdays(){
+          admWeekdaysEl.innerHTML = '';
+          ADM_WEEKDAYS.forEach(w => {
+            const div = document.createElement('div');
+            div.className = 'day';
+            div.textContent = w;
+            admWeekdaysEl.appendChild(div);
+          });
+        }
+
+        function adminRenderDays(){
+          admDaysEl.innerHTML = '';
+          const year = admCalendarCursor.getFullYear();
+          const month = admCalendarCursor.getMonth();
+          const firstDayIndex = new Date(year, month, 1).getDay();
+          const daysInMonth = new Date(year, month+1, 0).getDate();
+          const store = admParseStore();
+
+          for (let i=0;i<firstDayIndex;i++){
+            const div = document.createElement('div');
+            div.className = 'day prev';
+            admDaysEl.appendChild(div);
+          }
+          for (let d=1; d<=daysInMonth; d++){
+            const dateObj = new Date(year, month, d);
+            const dateStr = admFmtDate(dateObj);
+            const div = document.createElement('div');
+            div.className = 'day';
+            div.textContent = String(d);
+            const today = new Date();
+            if (today.getFullYear()===year && today.getMonth()===month && today.getDate()===d){
+              div.classList.add('today');
+            }
+            // Event indicator
+            if (store[dateStr] && store[dateStr].length){
+              const dot = document.createElement('span');
+              dot.style.display='block';
+              dot.style.width='6px';
+              dot.style.height='6px';
+              dot.style.background='#3498db';
+              dot.style.borderRadius='50%';
+              dot.style.margin='4px auto 0';
+              div.appendChild(dot);
+            }
+            div.addEventListener('click', ()=>{
+              admSelectedDate = dateStr;
+              admSelectedDateLabel.textContent = `(${admSelectedDate})`;
+              admEventsDate.textContent = admSelectedDate;
+              adminRenderEvents();
+            });
+            admDaysEl.appendChild(div);
+          }
+        }
+
+        function adminRenderHeader(){
+          const y = admCalendarCursor.getFullYear();
+          const m = admCalendarCursor.toLocaleString(undefined,{month:'long'});
+          admMonthName.textContent = `${m} ${y}`;
+        }
+
+        function adminRenderEvents(){
+          const store = admParseStore();
+          const list = store[admSelectedDate] || [];
+          // Filters
+          const typeFilter = admFilterType.value;
+          const courseFilter = (admFilterCourse.value||'').trim().toLowerCase();
+          const searchFilter = (admFilterSearch.value||'').trim().toLowerCase();
+          const filtered = list.filter(ev =>
+            (typeFilter==='all' || ev.type===typeFilter) &&
+            (!courseFilter || (ev.course||'').toLowerCase().includes(courseFilter)) &&
+            (!searchFilter || (ev.title+" "+(ev.notes||'')).toLowerCase().includes(searchFilter))
+          );
+          admEventsList.innerHTML = filtered.length ? '' : '<li>No events for this date.</li>';
+          filtered.sort((a,b)=> (a.time||'').localeCompare(b.time||''));
+          for (const ev of filtered){
+            const li = document.createElement('li');
+            li.innerHTML = `
+              <strong>${ev.time ? ev.time+' - ' : ''}${ev.title}</strong>
+              <div class="muted">${ev.type} ${ev.course ? ' • '+ev.course : ''} ${ev.lecturer ? ' • '+ev.lecturer : ''}</div>
+              <div class="muted">${ev.notes||''}</div>
+              <div style="margin-top:6px;display:flex;gap:8px;">
+                <button class="btn btn-small" data-edit="${ev.id}">Edit</button>
+                <button class="btn btn-small" data-del="${ev.id}">Delete</button>
+              </div>`;
+            admEventsList.appendChild(li);
+          }
+          // bind actions
+          admEventsList.querySelectorAll('[data-edit]').forEach(btn => btn.addEventListener('click', () => adminLoadEvent(btn.getAttribute('data-edit'))));
+          admEventsList.querySelectorAll('[data-del]').forEach(btn => btn.addEventListener('click', () => adminDeleteEvent(btn.getAttribute('data-del'))));
+        }
+
+        function adminLoadEvent(id){
+          const store = admParseStore();
+          const list = store[admSelectedDate] || [];
+          const ev = list.find(e => e.id === id);
+          if (!ev) return;
+          admEventId.value = ev.id;
+          admEventTitle.value = ev.title || '';
+          admEventTime.value = ev.time || '';
+          admEventType.value = ev.type || 'Other';
+          admEventCourse.value = ev.course || '';
+          admEventLecturer.value = ev.lecturer || '';
+          admEventNotes.value = ev.notes || '';
+        }
+
+        function adminDeleteEvent(id){
+          if (!admSelectedDate) return;
+          const store = admParseStore();
+          const list = store[admSelectedDate] || [];
+          const next = list.filter(e => e.id !== id);
+          store[admSelectedDate] = next;
+          admWriteStore(store);
+          adminRenderEvents();
+        }
+
+        function adminResetEventForm(){
+          admEventId.value = '';
+          admEventTitle.value = '';
+          admEventTime.value = '';
+          admEventType.value = 'Lecture';
+          admEventCourse.value = '';
+          admEventLecturer.value = '';
+          admEventNotes.value = '';
+        }
+
+        function adminSaveEvent(){
+          if (!admSelectedDate){ alert('Select a date on the calendar first.'); return; }
+          const title = (admEventTitle.value||'').trim();
+          if (!title){ alert('Please enter a title.'); return; }
+          const time = (admEventTime.value||'').trim();
+          const type = admEventType.value;
+          const course = (admEventCourse.value||'').trim();
+          const lecturer = (admEventLecturer.value||'').trim();
+          const notes = (admEventNotes.value||'').trim();
+          const store = admParseStore();
+          const list = store[admSelectedDate] || [];
+          const id = admEventId.value || `E${Date.now()}`;
+          const existingIndex = list.findIndex(e => e.id === id);
+          const payload = { 
+            id, 
+            title, 
+            time, 
+            type, 
+            course, 
+            lecturer, 
+            notes, 
+            isAdminEvent: true,
+            createdBy: 'admin',
+            createdAt: new Date().toISOString()
+          };
+          if (existingIndex >= 0) list[existingIndex] = payload; else list.push(payload);
+          store[admSelectedDate] = list;
+          admWriteStore(store);
+          adminRenderDays();
+          adminRenderEvents();
+          adminResetEventForm();
+        }
+
+        // Import/Export/Print/Clear
+        function adminExport(){
+          const data = admParseStore();
+          const blob = new Blob([JSON.stringify(data,null,2)], { type: 'application/json' });
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = `admin-calendar-${new Date().toISOString().slice(0,10)}.json`;
+          a.click();
+          URL.revokeObjectURL(a.href);
+        }
+        function adminImport(file){
+          const reader = new FileReader();
+          reader.onload = () => {
+            try {
+              const obj = JSON.parse(String(reader.result||'{}'));
+              admWriteStore(obj || {});
+              adminRenderDays();
+              if (admSelectedDate) adminRenderEvents();
+            } catch {}
+          };
+          reader.readAsText(file);
+        }
+        function adminClear(){
+          if (!confirm('Clear all admin calendar events?')) return;
+          localStorage.removeItem('adminCalendarEvents');
+          adminRenderDays();
+          admEventsList.innerHTML = '<li>No events for this date.</li>';
+        }
+
+        function adminPrint(){
+          window.print();
+        }
+
+        function adminRenderCalendar(){
+          adminRenderHeader();
+          adminRenderWeekdays();
+          adminRenderDays();
+        }
+
+        admPrevBtn?.addEventListener('click', ()=>{ admCalendarCursor.setMonth(admCalendarCursor.getMonth()-1); adminRenderCalendar(); });
+        admNextBtn?.addEventListener('click', ()=>{ admCalendarCursor.setMonth(admCalendarCursor.getMonth()+1); adminRenderCalendar(); });
+        admFilterApply?.addEventListener('click', ()=>{ if (admSelectedDate) adminRenderEvents(); });
+        admEventSave?.addEventListener('click', adminSaveEvent);
+        admEventReset?.addEventListener('click', adminResetEventForm);
+        admEventDelete?.addEventListener('click', ()=>{ if (admEventId.value) adminDeleteEvent(admEventId.value); });
+        admExportJson?.addEventListener('click', adminExport);
+        admImportJson?.addEventListener('click', ()=> admImportFile?.click());
+        admImportFile?.addEventListener('change', (e)=>{ const f = e.target.files?.[0]; if (f) adminImport(f); e.target.value = ''; });
+        admClearAll?.addEventListener('click', adminClear);
+        admPrintBtn?.addEventListener('click', adminPrint);
+
+        // If user lands on calendar directly by navigation, render it once
+        if (document.getElementById('calendar')?.style.display === 'block') adminRenderCalendar();
+
+        // ===== Users Management =====
+        const usersTbody = document.getElementById('users-tbody');
+        const userFilterRole = document.getElementById('user-filter-role');
+        const userFilterSearch = document.getElementById('user-filter-search');
+        const userFilterApply = document.getElementById('user-filter-apply');
+        const userExportBtn = document.getElementById('user-export');
+        const userImportBtn = document.getElementById('user-import');
+        const userImportFile = document.getElementById('user-import-file');
+
+        const userIdInput = document.getElementById('user-id');
+        const userNameInput = document.getElementById('user-name');
+        const userEmailInput = document.getElementById('user-email');
+        const userPasswordInput = document.getElementById('user-password');
+        const userRoleSelect = document.getElementById('user-role');
+        const userSaveBtn = document.getElementById('user-save');
+        const userResetBtn = document.getElementById('user-reset');
+
+        function loadUsers(){
+          try { return JSON.parse(localStorage.getItem('users')||'[]'); } catch { return []; }
+        }
+        function writeUsers(arr){ localStorage.setItem('users', JSON.stringify(arr)); }
+
+        function adminRenderUsers(){
+          const all = loadUsers();
+          const role = userFilterRole?.value || 'all';
+          const q = (userFilterSearch?.value||'').trim().toLowerCase();
+          const filtered = all.filter(u =>
+            (role==='all' || u.role===role) &&
+            (!q || (u.name||'').toLowerCase().includes(q) || (u.email||'').toLowerCase().includes(q))
+          );
+          usersTbody.innerHTML = '';
+          if (!filtered.length){
+            const tr = document.createElement('tr');
+            const td = document.createElement('td'); td.colSpan = 4; td.className = 'centered-cell'; td.textContent = 'No users found.';
+            tr.appendChild(td); usersTbody.appendChild(tr); return;
+          }
+          filtered.forEach(u => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td>${u.name||''}</td>
+              <td>${u.email||''}</td>
+              <td>${u.role||''}</td>
+              <td>
+                <button class="btn btn-small" data-edit-user="${u.email}">Edit</button>
+                <button class="btn btn-small" data-del-user="${u.email}">Delete</button>
+              </td>`;
+            usersTbody.appendChild(tr);
+          });
+          usersTbody.querySelectorAll('[data-edit-user]').forEach(btn => btn.addEventListener('click', ()=>{
+            const email = btn.getAttribute('data-edit-user');
+            const all = loadUsers();
+            const u = all.find(x => x.email === email);
+            if (!u) return;
+            userIdInput.value = u.email; // use email as identifier
+            userNameInput.value = u.name || '';
+            userEmailInput.value = u.email || '';
+            userPasswordInput.value = u.password || '';
+            userRoleSelect.value = u.role || 'Student';
+          }));
+          usersTbody.querySelectorAll('[data-del-user]').forEach(btn => btn.addEventListener('click', ()=>{
+            const email = btn.getAttribute('data-del-user');
+            const all = loadUsers().filter(x => x.email !== email);
+            writeUsers(all);
+            adminRenderUsers();
+          }));
+        }
+
+        function userResetForm(){
+          userIdInput.value = '';
+          userNameInput.value = '';
+          userEmailInput.value = '';
+          userPasswordInput.value = '';
+          userRoleSelect.value = 'Student';
+        }
+
+        function userSave(){
+          const name = (userNameInput.value||'').trim();
+          const email = (userEmailInput.value||'').trim();
+          const password = (userPasswordInput.value||'').trim();
+          const role = userRoleSelect.value;
+          if (!name || !email || !role){ alert('Name, Email and Role are required.'); return; }
+          const all = loadUsers();
+          const existingIndex = all.findIndex(u => u.email === (userIdInput.value || email));
+          const payload = { name, email, password, role };
+          if (existingIndex >= 0) all[existingIndex] = payload; else all.push(payload);
+          writeUsers(all);
+          adminRenderUsers();
+          userResetForm();
+        }
+
+        function usersExport(){
+          const data = loadUsers();
+          const blob = new Blob([JSON.stringify(data,null,2)], { type: 'application/json' });
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = `users-${new Date().toISOString().slice(0,10)}.json`;
+          a.click();
+          URL.revokeObjectURL(a.href);
+        }
+        function usersImport(file){
+          const reader = new FileReader();
+          reader.onload = () => {
+            try {
+              const arr = JSON.parse(String(reader.result||'[]'));
+              if (Array.isArray(arr)) writeUsers(arr);
+              adminRenderUsers();
+            } catch {}
+          };
+          reader.readAsText(file);
+        }
+
+        userFilterApply?.addEventListener('click', adminRenderUsers);
+        userSaveBtn?.addEventListener('click', userSave);
+        userResetBtn?.addEventListener('click', userResetForm);
+        userExportBtn?.addEventListener('click', usersExport);
+        userImportBtn?.addEventListener('click', ()=> userImportFile?.click());
+        userImportFile?.addEventListener('change', (e)=>{ const f=e.target.files?.[0]; if (f) usersImport(f); e.target.value=''; });
+
+        // Render users once if users section is visible
+        if (document.getElementById('users')?.style.display === 'block') adminRenderUsers();
+
+        // ===== Lecturers Management =====
+        const lecturersTbody = document.getElementById('lecturers-tbody');
+        const lecturerFilterDept = document.getElementById('lecturer-filter-dept');
+        const lecturerFilterSearch = document.getElementById('lecturer-filter-search');
+        const lecturerFilterApply = document.getElementById('lecturer-filter-apply');
+        const lecturerExportBtn = document.getElementById('lecturer-export');
+        const lecturerImportBtn = document.getElementById('lecturer-import');
+        const lecturerImportFile = document.getElementById('lecturer-import-file');
+
+        const lecturerIdInput = document.getElementById('lecturer-id');
+        const lecturerNameInput = document.getElementById('lecturer-name');
+        const lecturerEmailInput = document.getElementById('lecturer-email');
+        const lecturerPasswordInput = document.getElementById('lecturer-password');
+        const lecturerDeptSelect = document.getElementById('lecturer-dept');
+        const lecturerOfficeInput = document.getElementById('lecturer-office');
+        const lecturerPhoneInput = document.getElementById('lecturer-phone');
+        const lecturerBioInput = document.getElementById('lecturer-bio');
+        const lecturerSaveBtn = document.getElementById('lecturer-save');
+        const lecturerResetBtn = document.getElementById('lecturer-reset');
+
+        function loadLecturers(){
+          try { return JSON.parse(localStorage.getItem('lecturers')||'[]'); } catch { return []; }
+        }
+        function writeLecturers(arr){ localStorage.setItem('lecturers', JSON.stringify(arr)); }
+
+        function adminRenderLecturers(){
+          const all = loadLecturers();
+          const dept = lecturerFilterDept?.value || 'all';
+          const q = (lecturerFilterSearch?.value||'').trim().toLowerCase();
+          const filtered = all.filter(l =>
+            (dept==='all' || l.department===dept) &&
+            (!q || (l.name||'').toLowerCase().includes(q) || (l.email||'').toLowerCase().includes(q))
+          );
+          lecturersTbody.innerHTML = '';
+          if (!filtered.length){
+            const tr = document.createElement('tr');
+            const td = document.createElement('td'); td.colSpan = 6; td.className = 'centered-cell'; td.textContent = 'No lecturers found.';
+            tr.appendChild(td); lecturersTbody.appendChild(tr); return;
+          }
+          filtered.forEach(l => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td>${l.name||''}</td>
+              <td>${l.email||''}</td>
+              <td>${l.department||''}</td>
+              <td>${l.office||''}</td>
+              <td>${l.phone||''}</td>
+              <td>
+                <button class="btn btn-small" data-edit-lecturer="${l.email}">Edit</button>
+                <button class="btn btn-small" data-del-lecturer="${l.email}">Delete</button>
+              </td>`;
+            lecturersTbody.appendChild(tr);
+          });
+          lecturersTbody.querySelectorAll('[data-edit-lecturer]').forEach(btn => btn.addEventListener('click', ()=>{
+            const email = btn.getAttribute('data-edit-lecturer');
+            const all = loadLecturers();
+            const l = all.find(x => x.email === email);
+            if (!l) return;
+            lecturerIdInput.value = l.email;
+            lecturerNameInput.value = l.name || '';
+            lecturerEmailInput.value = l.email || '';
+            lecturerPasswordInput.value = l.password || '';
+            lecturerDeptSelect.value = l.department || 'Computer Science';
+            lecturerOfficeInput.value = l.office || '';
+            lecturerPhoneInput.value = l.phone || '';
+            lecturerBioInput.value = l.bio || '';
+          }));
+          lecturersTbody.querySelectorAll('[data-del-lecturer]').forEach(btn => btn.addEventListener('click', ()=>{
+            const email = btn.getAttribute('data-del-lecturer');
+            const all = loadLecturers().filter(x => x.email !== email);
+            writeLecturers(all);
+            adminRenderLecturers();
+          }));
+        }
+
+        function lecturerResetForm(){
+          lecturerIdInput.value = '';
+          lecturerNameInput.value = '';
+          lecturerEmailInput.value = '';
+          lecturerPasswordInput.value = '';
+          lecturerDeptSelect.value = 'Computer Science';
+          lecturerOfficeInput.value = '';
+          lecturerPhoneInput.value = '';
+          lecturerBioInput.value = '';
+        }
+
+        function lecturerSave(){
+          const name = (lecturerNameInput.value||'').trim();
+          const email = (lecturerEmailInput.value||'').trim();
+          const password = (lecturerPasswordInput.value||'').trim();
+          const department = lecturerDeptSelect.value;
+          const office = (lecturerOfficeInput.value||'').trim();
+          const phone = (lecturerPhoneInput.value||'').trim();
+          const bio = (lecturerBioInput.value||'').trim();
+          if (!name || !email || !department){ alert('Name, Email and Department are required.'); return; }
+          const all = loadLecturers();
+          const existingIndex = all.findIndex(l => l.email === (lecturerIdInput.value || email));
+          const payload = { name, email, password, department, office, phone, bio };
+          if (existingIndex >= 0) all[existingIndex] = payload; else all.push(payload);
+          writeLecturers(all);
+          adminRenderLecturers();
+          lecturerResetForm();
+        }
+
+        function lecturersExport(){
+          const data = loadLecturers();
+          const blob = new Blob([JSON.stringify(data,null,2)], { type: 'application/json' });
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = `lecturers-${new Date().toISOString().slice(0,10)}.json`;
+          a.click();
+          URL.revokeObjectURL(a.href);
+        }
+        function lecturersImport(file){
+          const reader = new FileReader();
+          reader.onload = () => {
+            try {
+              const arr = JSON.parse(String(reader.result||'[]'));
+              if (Array.isArray(arr)) writeLecturers(arr);
+              adminRenderLecturers();
+            } catch {}
+          };
+          reader.readAsText(file);
+        }
+
+        lecturerFilterApply?.addEventListener('click', adminRenderLecturers);
+        lecturerSaveBtn?.addEventListener('click', lecturerSave);
+        lecturerResetBtn?.addEventListener('click', lecturerResetForm);
+        lecturerExportBtn?.addEventListener('click', lecturersExport);
+        lecturerImportBtn?.addEventListener('click', ()=> lecturerImportFile?.click());
+        lecturerImportFile?.addEventListener('change', (e)=>{ const f=e.target.files?.[0]; if (f) lecturersImport(f); e.target.value=''; });
+
+        // ===== Students Management =====
+        const studentsTbody = document.getElementById('students-tbody');
+        const studentFilterYear = document.getElementById('student-filter-year');
+        const studentFilterCourse = document.getElementById('student-filter-course');
+        const studentFilterSearch = document.getElementById('student-filter-search');
+        const studentFilterApply = document.getElementById('student-filter-apply');
+        const studentExportBtn = document.getElementById('student-export');
+        const studentImportBtn = document.getElementById('student-import');
+        const studentImportFile = document.getElementById('student-import-file');
+
+        const studentIdInput = document.getElementById('student-id');
+        const studentNameInput = document.getElementById('student-name');
+        const studentEmailInput = document.getElementById('student-email');
+        const studentPasswordInput = document.getElementById('student-password');
+        const studentYearSelect = document.getElementById('student-year');
+        const studentCourseInput = document.getElementById('student-course');
+        const studentIdNumInput = document.getElementById('student-id-num');
+        const studentSaveBtn = document.getElementById('student-save');
+        const studentResetBtn = document.getElementById('student-reset');
+
+        function loadStudents(){
+          try { return JSON.parse(localStorage.getItem('students')||'[]'); } catch { return []; }
+        }
+        function writeStudents(arr){ localStorage.setItem('students', JSON.stringify(arr)); }
+
+        function adminRenderStudents(){
+          const all = loadStudents();
+          const year = studentFilterYear?.value || 'all';
+          const course = (studentFilterCourse?.value||'').trim().toLowerCase();
+          const q = (studentFilterSearch?.value||'').trim().toLowerCase();
+          const filtered = all.filter(s =>
+            (year==='all' || s.year===year) &&
+            (!course || (s.course||'').toLowerCase().includes(course)) &&
+            (!q || (s.name||'').toLowerCase().includes(q) || (s.email||'').toLowerCase().includes(q))
+          );
+          studentsTbody.innerHTML = '';
+          if (!filtered.length){
+            const tr = document.createElement('tr');
+            const td = document.createElement('td'); td.colSpan = 6; td.className = 'centered-cell'; td.textContent = 'No students found.';
+            tr.appendChild(td); studentsTbody.appendChild(tr); return;
+          }
+          filtered.forEach(s => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td>${s.name||''}</td>
+              <td>${s.email||''}</td>
+              <td>${s.year||''}</td>
+              <td>${s.course||''}</td>
+              <td>${s.studentId||''}</td>
+              <td>
+                <button class="btn btn-small" data-edit-student="${s.email}">Edit</button>
+                <button class="btn btn-small" data-del-student="${s.email}">Delete</button>
+              </td>`;
+            studentsTbody.appendChild(tr);
+          });
+          studentsTbody.querySelectorAll('[data-edit-student]').forEach(btn => btn.addEventListener('click', ()=>{
+            const email = btn.getAttribute('data-edit-student');
+            const all = loadStudents();
+            const s = all.find(x => x.email === email);
+            if (!s) return;
+            studentIdInput.value = s.email;
+            studentNameInput.value = s.name || '';
+            studentEmailInput.value = s.email || '';
+            studentPasswordInput.value = s.password || '';
+            studentYearSelect.value = s.year || '1';
+            studentCourseInput.value = s.course || '';
+            studentIdNumInput.value = s.studentId || '';
+          }));
+          studentsTbody.querySelectorAll('[data-del-student]').forEach(btn => btn.addEventListener('click', ()=>{
+            const email = btn.getAttribute('data-del-student');
+            const all = loadStudents().filter(x => x.email !== email);
+            writeStudents(all);
+            adminRenderStudents();
+          }));
+        }
+
+        function studentResetForm(){
+          studentIdInput.value = '';
+          studentNameInput.value = '';
+          studentEmailInput.value = '';
+          studentPasswordInput.value = '';
+          studentYearSelect.value = '1';
+          studentCourseInput.value = '';
+          studentIdNumInput.value = '';
+        }
+
+        function studentSave(){
+          const name = (studentNameInput.value||'').trim();
+          const email = (studentEmailInput.value||'').trim();
+          const password = (studentPasswordInput.value||'').trim();
+          const year = studentYearSelect.value;
+          const course = (studentCourseInput.value||'').trim();
+          const studentId = (studentIdNumInput.value||'').trim();
+          if (!name || !email || !year){ alert('Name, Email and Year are required.'); return; }
+          const all = loadStudents();
+          const existingIndex = all.findIndex(s => s.email === (studentIdInput.value || email));
+          const payload = { name, email, password, year, course, studentId };
+          if (existingIndex >= 0) all[existingIndex] = payload; else all.push(payload);
+          writeStudents(all);
+          adminRenderStudents();
+          studentResetForm();
+        }
+
+        function studentsExport(){
+          const data = loadStudents();
+          const blob = new Blob([JSON.stringify(data,null,2)], { type: 'application/json' });
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = `students-${new Date().toISOString().slice(0,10)}.json`;
+          a.click();
+          URL.revokeObjectURL(a.href);
+        }
+        function studentsImport(file){
+          const reader = new FileReader();
+          reader.onload = () => {
+            try {
+              const arr = JSON.parse(String(reader.result||'[]'));
+              if (Array.isArray(arr)) writeStudents(arr);
+              adminRenderStudents();
+            } catch {}
+          };
+          reader.readAsText(file);
+        }
+
+        studentFilterApply?.addEventListener('click', adminRenderStudents);
+        studentSaveBtn?.addEventListener('click', studentSave);
+        studentResetBtn?.addEventListener('click', studentResetForm);
+        studentExportBtn?.addEventListener('click', studentsExport);
+        studentImportBtn?.addEventListener('click', ()=> studentImportFile?.click());
+        studentImportFile?.addEventListener('change', (e)=>{ const f=e.target.files?.[0]; if (f) studentsImport(f); e.target.value=''; });
+
+        // Render sections once if visible
+        if (document.getElementById('lecturers')?.style.display === 'block') adminRenderLecturers();
+        if (document.getElementById('students')?.style.display === 'block') adminRenderStudents();
+
+        // ===== Attendance Management =====
+        const attFilterDateFrom = document.getElementById('att-filter-date-from');
+        const attFilterDateTo = document.getElementById('att-filter-date-to');
+        const attFilterCourse = document.getElementById('att-filter-course');
+        const attFilterLecturer = document.getElementById('att-filter-lecturer');
+        const attFilterApply = document.getElementById('att-filter-apply');
+        const attExportBtn = document.getElementById('att-export');
+        const attendanceTbody = document.getElementById('attendance-tbody');
+        const totalSessionsEl = document.getElementById('total-sessions');
+        const presentStudentsEl = document.getElementById('present-students');
+        const absentStudentsEl = document.getElementById('absent-students');
+        const attendanceRateEl = document.getElementById('attendance-rate');
+        const reportTypeSelect = document.getElementById('report-type');
+        const reportFormatSelect = document.getElementById('report-format');
+        const generateReportBtn = document.getElementById('generate-report');
+
+        function loadAttendanceData(){
+          try { return JSON.parse(localStorage.getItem('lecturerSessions')||'[]'); } catch { return []; }
+        }
+
+        function populateAttendanceFilters(){
+          const courses = loadCourses();
+          const lecturers = loadLecturers();
+          
+          attFilterCourse.innerHTML = '<option value="all">All Courses</option>';
+          courses.forEach(c => {
+            const opt = document.createElement('option');
+            opt.value = c.code;
+            opt.textContent = c.code;
+            attFilterCourse.appendChild(opt);
+          });
+
+          attFilterLecturer.innerHTML = '<option value="all">All Lecturers</option>';
+          lecturers.forEach(l => {
+            const opt = document.createElement('option');
+            opt.value = l.email;
+            opt.textContent = l.name;
+            attFilterLecturer.appendChild(opt);
+          });
+        }
+
+        function adminRenderAttendance(){
+          const sessions = loadAttendanceData();
+          const from = attFilterDateFrom?.value || '';
+          const to = attFilterDateTo?.value || '';
+          const course = attFilterCourse?.value || 'all';
+          const lecturer = attFilterLecturer?.value || 'all';
+          
+          const filtered = sessions.filter(s => {
+            if (from && s.date < from) return false;
+            if (to && s.date > to) return false;
+            if (course !== 'all' && s.course !== course) return false;
+            if (lecturer !== 'all' && s.lecturer !== lecturer) return false;
+            return true;
+          });
+
+          // Update stats
+          totalSessionsEl.textContent = filtered.length;
+          const totalPresent = filtered.reduce((sum, s) => sum + (s.presentCount || 0), 0);
+          const totalAbsent = filtered.reduce((sum, s) => sum + (s.absentCount || 0), 0);
+          presentStudentsEl.textContent = totalPresent;
+          absentStudentsEl.textContent = totalAbsent;
+          const rate = totalPresent + totalAbsent > 0 ? Math.round((totalPresent / (totalPresent + totalAbsent)) * 100) : 0;
+          attendanceRateEl.textContent = rate + '%';
+
+          // Render table
+          attendanceTbody.innerHTML = '';
+          if (!filtered.length){
+            const tr = document.createElement('tr');
+            const td = document.createElement('td'); td.colSpan = 8; td.className = 'centered-cell'; td.textContent = 'No attendance records found.';
+            tr.appendChild(td); attendanceTbody.appendChild(tr); return;
+          }
+
+          filtered.forEach(s => {
+            const tr = document.createElement('tr');
+            const present = s.presentCount || 0;
+            const absent = s.absentCount || 0;
+            const rate = present + absent > 0 ? Math.round((present / (present + absent)) * 100) : 0;
+            tr.innerHTML = `
+              <td>${s.date || ''}</td>
+              <td>${s.course || ''}</td>
+              <td>${s.lecturer || ''}</td>
+              <td>${s.id || ''}</td>
+              <td>${present}</td>
+              <td>${absent}</td>
+              <td>${rate}%</td>
+              <td>
+                <button class="btn btn-small" data-view-session="${s.id}">View</button>
+              </td>`;
+            attendanceTbody.appendChild(tr);
+          });
+        }
+
+        function exportAttendanceReport(){
+          const sessions = loadAttendanceData();
+          const data = {
+            exportDate: new Date().toISOString(),
+            sessions: sessions,
+            summary: {
+              totalSessions: sessions.length,
+              totalPresent: sessions.reduce((sum, s) => sum + (s.presentCount || 0), 0),
+              totalAbsent: sessions.reduce((sum, s) => sum + (s.absentCount || 0), 0)
+            }
+          };
+          const blob = new Blob([JSON.stringify(data,null,2)], { type: 'application/json' });
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = `attendance-report-${new Date().toISOString().slice(0,10)}.json`;
+          a.click();
+          URL.revokeObjectURL(a.href);
+        }
+
+        function generateReport(){
+          const type = reportTypeSelect?.value || 'summary';
+          const format = reportFormatSelect?.value || 'pdf';
+          alert(`Generating ${type} report in ${format.toUpperCase()} format...`);
+          // Implementation would depend on the specific reporting library
+        }
+
+        // ===== Settings Management =====
+        const defaultSessionDuration = document.getElementById('default-session-duration');
+        const attendanceThreshold = document.getElementById('attendance-threshold');
+        const autoArchiveDays = document.getElementById('auto-archive-days');
+        const timezoneSelect = document.getElementById('timezone');
+        const notifLowAttendance = document.getElementById('notif-low-attendance');
+        const notifSessionExpiry = document.getElementById('notif-session-expiry');
+        const notifSystemUpdates = document.getElementById('notif-system-updates');
+        const adminEmail = document.getElementById('admin-email');
+        const notificationFrequency = document.getElementById('notification-frequency');
+        const currentAdminPassword = document.getElementById('current-admin-password');
+        const newAdminPassword = document.getElementById('new-admin-password');
+        const confirmAdminPassword = document.getElementById('confirm-admin-password');
+        const sessionTimeout = document.getElementById('session-timeout');
+        const saveSettingsBtn = document.getElementById('save-settings');
+        const resetSettingsBtn = document.getElementById('reset-settings');
+        const backupDataBtn = document.getElementById('backup-data');
+        const restoreDataBtn = document.getElementById('restore-data');
+        const restoreFile = document.getElementById('restore-file');
+        const clearAllDataBtn = document.getElementById('clear-all-data');
+        const exportAllBtn = document.getElementById('export-all');
+
+        function loadAdminSettings(){
+          try { return JSON.parse(localStorage.getItem('adminSettings')||'{}'); } catch { return {}; }
+        }
+        function saveAdminSettings(settings){ localStorage.setItem('adminSettings', JSON.stringify(settings)); }
+
+        function adminLoadSettings(){
+          const settings = loadAdminSettings();
+          defaultSessionDuration.value = settings.defaultSessionDuration || 15;
+          attendanceThreshold.value = settings.attendanceThreshold || 75;
+          autoArchiveDays.value = settings.autoArchiveDays || 90;
+          timezoneSelect.value = settings.timezone || 'Africa/Johannesburg';
+          notifLowAttendance.checked = settings.notifLowAttendance !== false;
+          notifSessionExpiry.checked = settings.notifSessionExpiry !== false;
+          notifSystemUpdates.checked = settings.notifSystemUpdates !== false;
+          adminEmail.value = settings.adminEmail || '';
+          notificationFrequency.value = settings.notificationFrequency || 'daily';
+          sessionTimeout.value = settings.sessionTimeout || 30;
+        }
+
+        function saveSettings(){
+          const settings = {
+            defaultSessionDuration: Number(defaultSessionDuration.value) || 15,
+            attendanceThreshold: Number(attendanceThreshold.value) || 75,
+            autoArchiveDays: Number(autoArchiveDays.value) || 90,
+            timezone: timezoneSelect.value,
+            notifLowAttendance: notifLowAttendance.checked,
+            notifSessionExpiry: notifSessionExpiry.checked,
+            notifSystemUpdates: notifSystemUpdates.checked,
+            adminEmail: adminEmail.value.trim(),
+            notificationFrequency: notificationFrequency.value,
+            sessionTimeout: Number(sessionTimeout.value) || 30
+          };
+          saveAdminSettings(settings);
+          alert('Settings saved successfully!');
+        }
+
+        function resetSettings(){
+          if (confirm('Reset all settings to defaults?')){
+            localStorage.removeItem('adminSettings');
+            adminLoadSettings();
+            alert('Settings reset to defaults!');
+          }
+        }
+
+        function backupAllData(){
+          const data = {
+            users: loadUsers(),
+            lecturers: loadLecturers(),
+            students: loadStudents(),
+            courses: loadCourses(),
+            sessions: loadAttendanceData(),
+            settings: loadAdminSettings(),
+            exportDate: new Date().toISOString()
+          };
+          const blob = new Blob([JSON.stringify(data,null,2)], { type: 'application/json' });
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = `admin-backup-${new Date().toISOString().slice(0,10)}.json`;
+          a.click();
+          URL.revokeObjectURL(a.href);
+        }
+
+        function restoreData(file){
+          const reader = new FileReader();
+          reader.onload = () => {
+            try {
+              const data = JSON.parse(String(reader.result||'{}'));
+              if (data.users) writeUsers(data.users);
+              if (data.lecturers) writeLecturers(data.lecturers);
+              if (data.students) writeStudents(data.students);
+              if (data.courses) writeCourses(data.courses);
+              if (data.sessions) localStorage.setItem('lecturerSessions', JSON.stringify(data.sessions));
+              if (data.settings) saveAdminSettings(data.settings);
+              alert('Data restored successfully!');
+            } catch (e) {
+              alert('Error restoring data: ' + e.message);
+            }
+          };
+          reader.readAsText(file);
+        }
+
+        function clearAllData(){
+          if (confirm('This will permanently delete ALL data. Are you sure?')){
+            localStorage.clear();
+            alert('All data cleared!');
+          }
+        }
+
+        function exportAllData(){
+          const data = {
+            users: loadUsers(),
+            lecturers: loadLecturers(),
+            students: loadStudents(),
+            courses: loadCourses(),
+            sessions: loadAttendanceData(),
+            settings: loadAdminSettings(),
+            exportDate: new Date().toISOString()
+          };
+          const blob = new Blob([JSON.stringify(data,null,2)], { type: 'application/json' });
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = `admin-export-${new Date().toISOString().slice(0,10)}.json`;
+          a.click();
+          URL.revokeObjectURL(a.href);
+        }
+
+        // Event listeners
+        attFilterApply?.addEventListener('click', adminRenderAttendance);
+        attExportBtn?.addEventListener('click', exportAttendanceReport);
+        generateReportBtn?.addEventListener('click', generateReport);
+        saveSettingsBtn?.addEventListener('click', saveSettings);
+        resetSettingsBtn?.addEventListener('click', resetSettings);
+        backupDataBtn?.addEventListener('click', backupAllData);
+        restoreDataBtn?.addEventListener('click', () => restoreFile?.click());
+        restoreFile?.addEventListener('change', (e) => { const f = e.target.files?.[0]; if (f) restoreData(f); e.target.value = ''; });
+        clearAllDataBtn?.addEventListener('click', clearAllData);
+        exportAllBtn?.addEventListener('click', exportAllData);
+
+        // Initialize sections if visible
+        if (document.getElementById('attendance')?.style.display === 'block') {
+          populateAttendanceFilters();
+          adminRenderAttendance();
+        }
+        if (document.getElementById('settings')?.style.display === 'block') {
+          adminLoadSettings();
+        }
+
+        // Mobile sidebar functionality
+        document.getElementById('sidebar-toggle').addEventListener('click', function() {
+          const sidebar = document.getElementById('sidebar2');
+          sidebar.classList.add('active');
+          document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+        
+        document.getElementById('sidebar-close').addEventListener('click', function() {
+          const sidebar = document.getElementById('sidebar2');
+          sidebar.classList.remove('active');
+          document.body.style.overflow = ''; // Restore scrolling
+        });
+        
+        // Close sidebar when clicking outside
+        document.getElementById('sidebar2').addEventListener('click', function(e) {
+          if (e.target === this) {
+            this.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        });
+        
+        // Close sidebar on escape key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') {
+            const sidebar = document.getElementById('sidebar2');
+            if (sidebar.classList.contains('active')) {
+              sidebar.classList.remove('active');
+              document.body.style.overflow = '';
+            }
+          }
+        });
+
+      });
+    </script>
+  </body>
+</html>
+        

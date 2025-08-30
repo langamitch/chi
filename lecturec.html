@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edutend - Module Management</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="container">
+      <nav>
+        <div class="nav-left">
+          <strong>EDUTEND</strong>
+        </div>
+        <div class="nav-right">
+          <a href="#" class="toggle" id="menu-toggle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="32px"
+              width="42px"
+              viewBox="0 -960 960 960"
+              fill="#fff"
+            >
+              <g transform="scale(-1, 1) translate(-960, 0)">
+                <path d="M180-390v-0h450v60H180Zm0-190v-40h600v60H180Z" />
+              </g>
+            </svg>
+            <div class="profile">
+              <h1>IN</h1>
+            </div>
+          </a>
+        </div>
+      </nav>
+  </header>
+
+    <main class="container">
+    <div class="hero-text">
+      <h1>Don't settle for ordinary.</h1>
+      <p>Easily manage your studies anywhere.</p>
+    </div>
+
+    <!-- Card Grid -->
+    <div class="card-grid">
+      <div class="card yellow" data-module-code="HCI" data-module-name="HUMAN COMPUTER INTERACTION II">
+        <div><h2>HUMAN COMPUTER INTERACTION II</h2><p>HCI</p></div>
+        <div class="course-status" id="course-status-HCI">
+          <span class="status-indicator">No active session</span>
+        </div>
+        <div class="btn-container">
+          <button class="create-class-btn">Create Class</button>
+          <button class="view-details-btn">View Details</button>
+          <a href="#" class="view-live-session-btn" id="live-session-HCI" style="display: none;">View Live Session</a>
+        </div>
+      </div>
+      <div class="card sky" data-module-code="TEP" data-module-name="TECHNICAL PROGRAMMING I">
+        <div><h2>TECHNICAL PROGRAMMING I</h2><p>TEP</p></div>
+        <div class="course-status" id="course-status-TEP">
+          <span class="status-indicator">No active session</span>
+        </div>
+        <div class="btn-container">
+          <button class="create-class-btn">Create Class</button>
+          <button class="view-details-btn">View Details</button>
+          <a href="#" class="view-live-session-btn" id="live-session-TEP" style="display: none;">View Live Session</a>
+        </div>
+      </div>
+      <div class="card blue" data-module-code="DES" data-module-name="DEVELOPMENT SOFTWARE II">
+        <div><h2>DEVELOPMENT SOFTWARE II</h2><p>DES</p></div>
+        <div class="course-status" id="course-status-DES">
+          <span class="status-indicator">No active session</span>
+        </div>
+        <div class="btn-container">
+          <button class="create-class-btn">Create Class</button>
+          <button class="view-details-btn">View Details</button>
+          <a href="#" class="view-live-session-btn" id="live-session-DES" style="display: none;">View Live Session</a>
+        </div>
+      </div>
+      <div class="card purple" data-module-code="INF" data-module-name="INFORMATION SYSTEM II">
+        <div><h2>INFORMATION SYSTEM II</h2><p>INF</p></div>
+        <div class="course-status" id="course-status-INF">
+          <span class="status-indicator">No active session</span>
+        </div>
+        <div class="btn-container">
+          <button class="create-class-btn">Create Class</button>
+          <button class="view-details-btn">View Details</button>
+          <a href="#" class="view-live-session-btn" id="live-session-INF" style="display: none;">View Live Session</a>
+        </div>
+      </div>
+      <div class="card sage" data-module-code="DEV" data-module-name="DEVELOPMENT SOFTWARE I">
+        <div><h2>DEVELOPMENT SOFTWARE I</h2><p>DEV</p></div>
+        <div class="course-status" id="course-status-DEV">
+          <span class="status-indicator">No active session</span>
+        </div>
+        <div class="btn-container">
+          <button class="create-class-btn">Create Class</button>
+          <button class="view-details-btn">View Details</button>
+          <a href="#" class="view-live-session-btn" id="live-session-DEV" style="display: none;">View Live Session</a>
+        </div>
+      </div>
+      <div class="card grey" data-module-code="ITS" data-module-name="INFOTMATION TECHNOLOGY SKILLS I">
+        <div><h2>INFORMATION TECHNICAL SKILLS I</h2><p>ITS</p></div>
+        <div class="course-status" id="course-status-ITS">
+          <span class="status-indicator">No active session</span>
+        </div>
+        <div class="btn-container">
+          <button class="create-class-btn">Create Class</button>
+          <button class="view-details-btn">View Details</button>
+          <a href="#" class="view-live-session-btn" id="live-session-ITS" style="display: none;">View Live Session</a>
+        </div>
+      </div>
+      <div class="card dark-blue" data-module-code="IS" data-module-name="INFORMATION SYSTEMS I">
+        <div><h2>INFORMATION SYSTEMS I</h2><p>IS</p></div>
+        <div class="course-status" id="course-status-IS">
+          <span class="status-indicator">No active session</span>
+        </div>
+        <div class="btn-container">
+          <button class="create-class-btn">Create Class</button>
+          <button class="view-details-btn">View Details</button>
+          <a href="#" class="view-live-session-btn" id="live-session-IS" style="display: none;">View Live Session</a>
+        </div>
+      </div>
+      <div class="card lavender" data-module-code="SS" data-module-name="SYSTEM SOFTWARE I">
+        <div><h2>SYSTEM SOFTWARE I</h2><p>SS</p></div>
+        <div class="course-status" id="course-status-SS">
+          <span class="status-indicator">No active session</span>
+        </div>
+        <div class="btn-container">
+          <button class="create-class-btn">Create Class</button>
+          <button class="view-details-btn">View Details</button>
+          <a href="#" class="view-live-session-btn" id="live-session-SS" style="display: none;">View Live Session</a>
+        </div>
+      </div>
+      <!-- other cards here -->
+    </div>
+
+    <!-- QR Code/Create Session Overlay -->
+    <div id="qr-overlay" class="overlay">
+      <div class="overlay-content">
+        <button class="btn close-overlay-btn" onclick="closeOverlay('qr-overlay')">Close</button>
+        <span class="close-btn" onclick="closeOverlay('qr-overlay')">&times;</span>
+        <h2 id="qr-overlay-title">Create New Session</h2>
+        
+        <!-- Course Information Display -->
+        <div class="course-info" id="course-info">
+          <h3 id="selected-course-name">Course Name</h3>
+          <p id="selected-course-code">Course Code</p>
+        </div>
+        
+        <button class="btn" id="generate-qr-btn">Generate PIN & QR Code</button>
+        <div>
+          <p>Override default 15 min timer:</p>
+          <button class="btn" onclick="setTimer(5)">5 min</button>
+          <button class="btn" onclick="setTimer(10)">10 min</button>
+          <button class="btn" onclick="setTimer(15)">15 min</button>
+        </div>
+        <div id="qr-display-area">
+          <div id="qrcode"></div>
+          <p id="pin-display"></p>
+          <p id="timer-display"></p>
+          <div class="session-info" id="session-info">
+            <p><strong>Course:</strong> <span id="session-course-name">-</span></p>
+            <p><strong>Code:</strong> <span id="session-course-code">-</span></p>
+            <p><strong>Session ID:</strong> <span id="session-id">-</span></p>
+            <p><strong>Created:</strong> <span id="session-created">-</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Details Overlay -->
+    <div id="details-overlay" class="overlay">
+      <div class="overlay-content">
+        <h2 id="details-overlay-title">Module Details</h2>
+        <div id="session-list-view">
+          <h3>Course Sessions</h3>
+          <div class="session-filters">
+            <label for="session-status-filter" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">Filter sessions by status</label>
+            <select id="session-status-filter">
+              <option value="all">All Sessions</option>
+              <option value="active">Active Sessions</option>
+              <option value="closed">Closed Sessions</option>
+            </select>
+            <button class="btn" id="refresh-sessions-btn">Refresh</button>
+          </div>
+          <div id="course-sessions-list">
+            <p>Loading sessions...</p>
+          </div>
+        </div>
+        <div id="submission-detail-view" style="display: none;">
+          <button id="back-to-sessions-btn" class="btn">&larr; Back</button>
+          <h3 id="submission-detail-title">Session Attendance</h3>
+          <div class="session-info">
+            <p><strong>Session ID:</strong> <span id="detail-session-id">-</span></p>
+            <p><strong>Course:</strong> <span id="detail-course-name">-</span></p>
+            <p><strong>PIN:</strong> <span id="detail-pin">-</span></p>
+            <p><strong>Status:</strong> <span id="detail-status">-</span></p>
+          </div>
+          <div class="table-responsive">
+            <table class="attendance-table">
+              <thead>
+                <tr>
+                  <th>Student Name</th>
+                  <th>Student Number</th>
+                  <th>Timestamp</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="submission-detail-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="container">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+ <script type="module" src="/index.js"></script>
+ <script type="module" src="/sub.js"></script>
+
+
+</body>
+</html>

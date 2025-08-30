@@ -1,0 +1,3785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - EdUTEND</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://unpkg.com/docx@8.2.3/build/index.js"></script>
+</head>
+<body class="admin-dashboard">
+    <div class="sidebar nav" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Student Dashboard - EdUTEND</h2>
+        </div>
+        <nav class="mt-6">
+            <a href="#" class="student-nav-item block px-4 text-gray-700 hover:bg-indigo-50 hover:text-indigo600 rounded active" data-target="dashboard">
+                <i class="mr-3 fas fa-tachometer-alt"></i>
+                Dashboard
+            </a>
+            <a href="#" class="student-nav-item block px-4 text-gray-700 hover:bg-indigo-50 hover:text-indigo600 rounded" data-target="profile">
+                <i class="mr-3 fas fa-user"></i>
+                Profile
+            </a>
+            <a href="#" class="student-nav-item block px-4 text-gray-700 hover:bg-indigo-50 hover:text-indigo600 rounded" data-target="calendar">
+                <i class="mr-3 fas fa-calendar"></i>
+                Calendar
+            </a>
+            <a href="studentc.html" class="student-nav-item block px-4 text-gray-700 hover:bg-indigo-50 hover:text-indigo600 rounded" data-target="courses">
+                <i class="mr-3 fas fa-book"></i>
+                Courses
+            </a>
+            <a href="#" class="student-nav-item block px-4 text-gray-700 hover:bg-indigo-50 hover:text-indigo600 rounded" data-target="qrcodescanner">
+                <i class="mr-3 fas fa-qrcode"></i>
+                Scanner
+            </a>
+            <a href="#" class="student-nav-item block px-4 text-gray-700 hover:bg-indigo-50 hover:text-indigo600 rounded" data-target="pinenter">
+                <i class="mr-3 fas fa-key"></i>
+                Pin
+            </a>
+            <a href="#" class="student-nav-item block px-4 text-gray-700 hover:bg-indigo-50 hover:text-indigo600 rounded" data-target="attendance">
+                <i class="mr-3 fas fa-check"></i>
+                Attendance
+            </a>
+            <a href="#" class="student-nav-item block px-4 text-gray-700 hover:bg-indigo-50 hover:text-indigo600 rounded" data-target="reports">
+                <i class="mr-3 fas fa-chart-bar"></i>
+                Reports
+            </a>
+            <a href="#" class="student-nav-item block px-4 text-gray-700 hover:bg-indigo-50 hover:text-indigo600 rounded" data-target="settings">
+                <i class="mr-3 fas fa-cog"></i>
+                Settings
+            </a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <header class="header">
+                <!-- Enhanced Mobile Sidebar Toggle -->
+        <div class="toggle">
+          <button id="sidebar-toggle" class="toggle-btn" aria-label="Open Menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        
+        <!-- Enhanced Mobile Sidebar -->
+        <div class="sidebar2" id="sidebar2">
+          <div class="sidebar-header">
+            <div class="sidebar-title">
+              <h2 class="h1">Student Dashboard</h2>
+              <p class="h2">EdUTEND System</p>
+            </div>
+            <button id="sidebar-close" class="sidebar-close-btn" aria-label="Close Menu">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          
+          <nav class="mobile-nav">
+            <a href="#" class="student-nav-item active" data-target="dashboard">
+              <i class="fas fa-tachometer-alt"></i>
+              <span>Dashboard</span>
+            </a>
+            <a href="#" class="student-nav-item" data-target="profile">
+              <i class="fas fa-user"></i>
+              <span>Profile</span>
+            </a>
+            <a href="#" class="student-nav-item" data-target="calendar">
+              <i class="fas fa-calendar"></i>
+              <span>Calendar</span>
+            </a>
+            <a href="studentc.html" class="student-nav-item">
+              <i class="fas fa-book"></i>
+              <span>Courses</span>
+            </a>
+            <a href="#" class="student-nav-item" data-target="qrcodescanner">
+              <i class="fas fa-qrcode"></i>
+              <span>Scanner</span>
+            </a>
+            <a href="#" class="student-nav-item" data-target="pinenter">
+              <i class="fas fa-key"></i>
+              <span>Pin</span>
+            </a>
+            <a href="#" class="student-nav-item" data-target="attendance">
+              <i class="fas fa-check"></i>
+              <span>Attendance</span>
+            </a>
+            <a href="#" class="student-nav-item" data-target="reports">
+              <i class="fas fa-chart-bar"></i>
+              <span>Reports</span>
+            </a>
+            <a href="#" class="student-nav-item" data-target="settings">
+              <i class="fas fa-cog"></i>
+              <span>Settings</span>
+            </a>
+            <a href="index.html" class="student-nav-item logout-item">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Logout</span>
+            </a>
+          </nav>
+          
+          <!-- Mobile User Info -->
+          <div class="mobile-user-info">
+            <div class="user-avatar">ST</div>
+            <div class="user-details">
+              <p class="user-name">Student</p>
+              <p class="user-role">Student Member</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Header Content -->
+        <div class="user-info">
+          <span>Welcome, Student</span>
+        </div>
+        <div class="header-actions">
+            <a href="index.html" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span class="logout-text">Logout</span>
+            </a>
+        </div>
+        </header>
+
+
+
+        <div id="dashboard" class="section">
+            <h3>Dashboard Overview</h3>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <i class="fas fa-chalkboard-teacher stat-icon"></i>
+                    <div class="stat-content">
+                        <div class="stat-label">Total Lecturers</div>
+                        <div class="stat-value">4</div>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-book stat-icon"></i>
+                    <div class="stat-content">
+                        <div class="stat-label">Total Courses</div>
+                        <div class="stat-value">4</div>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-check-circle stat-icon"></i>
+                    <div class="stat-content">
+                        <div class="stat-label">Total Attendance</div>
+                        <div class="stat-value">26</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="profile" class="section" style="display: none;">
+            <h3>Student Profile</h3>
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="identity">
+                        <h4 id="student-name">Siyabonga Sithole</h4>
+                        <div class="muted" id="student-id">Student ID: 230018440</div>
+                    </div>
+                </div>
+                
+                <div class="profile-details">
+                    <div class="detail">
+                        <span>Email:</span>
+                        <strong id="student-email">student@example.com</strong>
+                    </div>
+                    <div class="detail">
+                        <span>Year:</span>
+                        <strong id="student-year">2nd Year</strong>
+                    </div>
+                    <div class="detail">
+                        <span>Course:</span>
+                        <strong id="student-course">Info Tech & App Dev</strong>
+                    </div>
+                    <div class="detail">
+                        <span>Department:</span>
+                        <strong id="student-dept">App Dev</strong>
+                    </div>
+                    <div class="detail">
+                        <span>Phone:</span>
+                        <strong id="student-phone">+27 123 456 789</strong>
+                    </div>
+                    <div class="detail">
+                        <span>Address:</span>
+                        <strong id="student-address">Quigney, E.L</strong>
+                    </div>
+                </div>
+
+                <div class="profile-bio">
+                    <h5>Bio</h5>
+                    <p id="student-bio">A dedicated student pursuing App Dev with a passion for technology and innovation.</p>
+                </div>
+
+                <div class="profile-actions">
+                    <button class="btn" id="edit-profile-btn">Edit Profile</button>
+                </div>
+            </div>
+
+            <div class="settings-group mt-16" id="edit-profile-form" style="display: none;">
+                <h4>Edit Profile</h4>
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="edit-name">Full Name</label>
+                        <input type="text" id="edit-name" placeholder="Enter your full name" />
+                    </div>
+                    <div class="form-field">
+                        <label for="edit-email">Email</label>
+                        <input type="email" id="edit-email" placeholder="Enter your email" />
+                    </div>
+                    <div class="form-field">
+                        <label for="edit-phone">Phone</label>
+                        <input type="tel" id="edit-phone" placeholder="Enter your phone number" />
+                    </div>
+                    <div class="form-field">
+                        <label for="edit-address">Address</label>
+                        <input type="text" id="edit-address" placeholder="Enter your address" />
+                    </div>
+                    <div class="form-field full-width">
+                        <label for="edit-bio">Bio</label>
+                        <textarea id="edit-bio" rows="3" placeholder="Tell us about yourself..."></textarea>
+                    </div>
+                    <div class="form-field">
+                        <label for="edit-password">New Password</label>
+                        <input type="password" id="edit-password" placeholder="Enter new password (optional)" />
+                    </div>
+                    <div class="form-field">
+                        <label for="edit-confirm-password">Confirm Password</label>
+                        <input type="password" id="edit-confirm-password" placeholder="Confirm new password" />
+                    </div>
+                    <div class="form-field">
+                        <label>&nbsp;</label>
+                        <button class="btn" id="save-profile-btn">Save Changes</button>
+                    </div>
+                    <div class="form-field">
+                        <label>&nbsp;</label>
+                        <button class="btn" id="cancel-edit-btn">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="calendar" class="section" style="display: none;">
+            <h3>Academic Calendar</h3>
+            <div class="calendar">
+                <div class="header">
+                    <div class="month" id="calendar-month">January 2025</div>
+                    <div class="btns">
+                        <button class="btn" id="prev-month">‹</button>
+                        <button class="btn" id="next-month">›</button>
+                    </div>
+                </div>
+                <div class="weekdays">
+                    <div class="day">Sun</div>
+                    <div class="day">Mon</div>
+                    <div class="day">Tue</div>
+                    <div class="day">Wed</div>
+                    <div class="day">Thu</div>
+                    <div class="day">Fri</div>
+                    <div class="day">Sat</div>
+                </div>
+                <div class="days" id="calendar-days"></div>
+            </div>
+
+            <div class="settings-group mt-16">
+                <h4>Add Event</h4>
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="event-title">Event Title</label>
+                        <input type="text" id="event-title" placeholder="Enter event title" />
+                    </div>
+                    <div class="form-field">
+                        <label for="event-date">Date</label>
+                        <input type="date" id="event-date" />
+                    </div>
+                    <div class="form-field">
+                        <label for="event-time">Time</label>
+                        <input type="time" id="event-time" />
+                    </div>
+                    <div class="form-field">
+                        <label for="event-type">Type</label>
+                        <select id="event-type">
+                            <option value="assignment">Assignment</option>
+                            <option value="exam">Exam</option>
+                            <option value="lecture">Lecture</option>
+                            <option value="tutorial">Tutorial</option>
+                            <option value="personal">Personal</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="event-course">Course</label>
+                        <select id="event-course">
+                            <option value="">Select Course</option>
+                        </select>
+                    </div>
+                    <div class="form-field full-width">
+                        <label for="event-notes">Notes</label>
+                        <textarea id="event-notes" rows="2" placeholder="Additional notes..."></textarea>
+                    </div>
+                    <div class="form-field">
+                        <label>&nbsp;</label>
+                        <button class="btn" id="add-event-btn">Add Event</button>
+                    </div>
+                    <div class="form-field">
+                        <label>&nbsp;</label>
+                        <button class="btn" id="clear-event-form-btn">Clear</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <h4>My Events</h4>
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="event-filter-type">Filter by Type</label>
+                        <select id="event-filter-type">
+                            <option value="all">All Types</option>
+                            <option value="assignment">Assignment</option>
+                            <option value="exam">Exam</option>
+                            <option value="lecture">Lecture</option>
+                            <option value="tutorial">Tutorial</option>
+                            <option value="personal">Personal</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="event-filter-course">Filter by Course</label>
+                        <select id="event-filter-course">
+                            <option value="all">All Courses</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label>&nbsp;</label>
+                        <button class="btn" id="apply-event-filter-btn">Apply Filter</button>
+                    </div>
+                    <div class="form-field">
+                        <label>&nbsp;</label>
+                        <button class="btn" id="export-events-btn">Export Events</button>
+                    </div>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="attendance-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Title</th>
+                                <th>Type</th>
+                                <th>Course</th>
+                                <th>Notes</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="events-tbody">
+                            <tr><td colspan="7" class="centered-cell">No events found.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="qrcodescanner" class="section" style="display: none;">
+            <h3>QR Code Scanner</h3>
+            
+            <!-- Enhanced Course Selection for QR Scanning -->
+            <div class="settings-group mb-16">
+                <h4>Select Course for Attendance</h4>
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="scanner-course-select">Course</label>
+                        <select id="scanner-course-select">
+                            <option value="">Select a course to scan QR code for</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label>&nbsp;</label>
+                        <button class="btn" id="refresh-courses-btn">
+                            <i class="fas fa-sync-alt"></i>
+                            Refresh Courses
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Enhanced Course Information Display -->
+                <div class="course-info" id="course-info" style="display: none;">
+                    <div class="info-card">
+                        <h5 id="selected-course-name">Course Name</h5>
+                        <p id="selected-course-code">Course Code</p>
+                        <div class="course-stats">
+                            <span class="stat">
+                                <i class="fas fa-calendar"></i>
+                                <span id="course-sessions">0</span> sessions
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-check-circle"></i>
+                                <span id="course-attendance">0%</span> attendance
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-qrcode"></i>
+                                <span id="active-qr-codes">0</span> active QR codes
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active QR Codes Status -->
+            <div class="settings-group mb-16" id="active-qr-status" style="display: none;">
+                <h4>Active QR Codes Status</h4>
+                <div class="qr-status-grid" id="qr-status-grid">
+                    <!-- QR status cards will be populated here -->
+                </div>
+            </div>
+
+            <div class="scanner-container">
+                <div class="scanner-header">
+                    <div class="scanner-status">
+                        <div class="status-indicator" id="scanner-status">
+                            <i class="fas fa-circle"></i>
+                            <span id="status-text">Ready to Scan</span>
+                        </div>
+                    </div>
+                    <div class="scanner-controls">
+                        <button class="btn" id="start-scan-btn" disabled>
+                            <i class="fas fa-camera"></i>
+                            Start Scanner
+                        </button>
+                        <button class="btn" id="stop-scan-btn" style="display: none;">
+                            <i class="fas fa-stop"></i>
+                            Stop Scanner
+                        </button>
+                    </div>
+                </div>
+
+                <div class="scanner-viewport">
+                    <video id="scanner-video" autoplay playsinline></video>
+                    <canvas id="scanner-canvas" style="display: none;"></canvas>
+                    <div class="scanner-overlay">
+                        <div class="scanner-frame"></div>
+                        <div class="scanner-instructions">
+                            <p>Position the QR code within the frame</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scanner-results" id="scanner-results" style="display: none;">
+                    <div class="result-card">
+                        <div class="result-header">
+                            <h4>Scan Result</h4>
+                            <button class="btn btn-small" id="close-result-btn">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="result-content">
+                            <div class="result-item">
+                                <span class="label">PIN:</span>
+                                <span class="value" id="scanned-pin">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Course:</span>
+                                <span class="value" id="scanned-course">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Lecturer:</span>
+                                <span class="value" id="scanned-lecturer">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Session ID:</span>
+                                <span class="value" id="scanned-session">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Status:</span>
+                                <span class="value" id="scanned-status">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Expires:</span>
+                                <span class="value" id="scanned-expires">-</span>
+                            </div>
+                        </div>
+                        <div class="result-actions">
+                            <button class="btn" id="mark-attendance-btn">
+                                <i class="fas fa-check"></i>
+                                Mark Attendance
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Available QR Codes for Courses -->
+            <div class="settings-group mt-16">
+                <h4>Available QR Codes for Courses</h4>
+                <div class="qr-codes-grid" id="qr-codes-grid">
+                    <div class="qr-placeholder">
+                        <i class="fas fa-qrcode"></i>
+                        <p>Select a course to view available QR codes</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-group mt-16">
+                <h4>Manual PIN Entry</h4>
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="manual-pin">Enter PIN</label>
+                        <input type="text" id="manual-pin" placeholder="Enter the PIN from lecturer" maxlength="6" />
+                    </div>
+                    <div class="form-field">
+                        <label>&nbsp;</label>
+                        <button class="btn" id="submit-pin-btn">
+                            <i class="fas fa-key"></i>
+                            Submit PIN
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <h4>Recent Scans</h4>
+                <div class="table-responsive">
+                    <table class="attendance-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>PIN</th>
+                                <th>Course</th>
+                                <th>Lecturer</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recent-scans-tbody">
+                            <tr><td colspan="7" class="centered-cell">No recent scans found.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="pinenter" class="section" style="display: none;">
+            <h3>PIN Entry</h3>
+            <div class="pin-entry-container">
+                <div class="pin-entry-header">
+                    <div class="pin-status">
+                        <div class="status-indicator" id="pin-status">
+                            <i class="fas fa-circle"></i>
+                            <span id="pin-status-text">Ready to Enter PIN</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pin-entry-form">
+                    <div class="pin-input-section">
+                        <h4>Enter Session PIN</h4>
+                        <p class="pin-instructions">Enter the 6-digit PIN provided by your lecturer to mark attendance.</p>
+                        
+                        <div class="pin-input-group">
+                            <input type="text" id="pin-input-1" class="pin-digit" maxlength="1" placeholder="0" />
+                            <input type="text" id="pin-input-2" class="pin-digit" maxlength="1" placeholder="0" />
+                            <input type="text" id="pin-input-3" class="pin-digit" maxlength="1" placeholder="0" />
+                            <input type="text" id="pin-input-4" class="pin-digit" maxlength="1" placeholder="0" />
+                            <input type="text" id="pin-input-5" class="pin-digit" maxlength="1" placeholder="0" />
+                            <input type="text" id="pin-input-6" class="pin-digit" maxlength="1" placeholder="0" />
+                        </div>
+                        
+                        <div class="pin-actions">
+                            <button class="btn" id="submit-pin-entry-btn">
+                                <i class="fas fa-check"></i>
+                                Submit PIN
+                            </button>
+                            <button class="btn" id="clear-pin-btn">
+                                <i class="fas fa-times"></i>
+                                Clear
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pin-results" id="pin-results" style="display: none;">
+                    <div class="result-card">
+                        <div class="result-header">
+                            <h4>PIN Verification Result</h4>
+                            <button class="btn btn-small" id="close-pin-result-btn">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="result-content">
+                            <div class="result-item">
+                                <span class="label">PIN:</span>
+                                <span class="value" id="verified-pin">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Course:</span>
+                                <span class="value" id="verified-course">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Lecturer:</span>
+                                <span class="value" id="verified-lecturer">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Session ID:</span>
+                                <span class="value" id="verified-session">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Status:</span>
+                                <span class="value" id="verified-status">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Expires:</span>
+                                <span class="value" id="verified-expires">-</span>
+                            </div>
+                        </div>
+                        <div class="result-actions">
+                            <button class="btn" id="mark-pin-attendance-btn">
+                                <i class="fas fa-check"></i>
+                                Mark Attendance
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-group mt-16">
+                <h4>Quick PIN Entry</h4>
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="quick-pin">Enter Full PIN</label>
+                        <input type="text" id="quick-pin" placeholder="Enter 6-digit PIN" maxlength="6" pattern="[0-9]{6}" />
+                    </div>
+                    <div class="form-field">
+                        <label>&nbsp;</label>
+                        <button class="btn" id="quick-submit-pin-btn">
+                            <i class="fas fa-key"></i>
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <h4>PIN Entry History</h4>
+                <div class="table-responsive">
+                    <table class="attendance-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>PIN</th>
+                                <th>Course</th>
+                                <th>Lecturer</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="pin-history-tbody">
+                            <tr><td colspan="7" class="centered-cell">No PIN entries found.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="attendance" class="section" style="display: none;">
+            <h3>My Attendance</h3>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <i class="fas fa-calendar-check stat-icon"></i>
+                    <div class="stat-content">
+                        <div class="stat-label">Total Sessions</div>
+                        <div class="stat-value" id="total-sessions">0</div>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-user-check stat-icon"></i>
+                    <div class="stat-content">
+                        <div class="stat-label">Present</div>
+                        <div class="stat-value" id="present-count">0</div>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-user-times stat-icon"></i>
+                    <div class="stat-content">
+                        <div class="stat-label">Absent</div>
+                        <div class="stat-value" id="absent-count">0</div>
+                    </div>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-percentage stat-icon"></i>
+                    <div class="stat-content">
+                        <div class="stat-label">Attendance Rate</div>
+                        <div class="stat-value" id="attendance-rate">0%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <h4>Attendance Records</h4>
+                <div class="attendance-toolbar">
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label for="attendance-course-filter">Course</label>
+                            <select id="attendance-course-filter">
+                                <option value="">All Courses</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="attendance-date-filter">Date Range</label>
+                            <select id="attendance-date-filter">
+                                <option value="all">All Time</option>
+                                <option value="week">This Week</option>
+                                <option value="month">This Month</option>
+                                <option value="semester">This Semester</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label>&nbsp;</label>
+                            <button class="btn" id="apply-attendance-filters">
+                                <i class="fas fa-filter"></i>
+                                Apply Filters
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="attendance-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Course</th>
+                                <th>Lecturer</th>
+                                <th>Session ID</th>
+                                <th>Method</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attendance-tbody">
+                            <tr><td colspan="8" class="centered-cell">No attendance records found.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="reports" class="section" style="display: none;">
+            <h3>My Reports</h3>
+            <div class="settings-group">
+                <h4>Generate Reports</h4>
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="report-type">Report Type</label>
+                        <select id="report-type">
+                            <option value="attendance">Attendance Report</option>
+                            <option value="academic">Academic Progress</option>
+                            <option value="course">Course Summary</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="report-period">Period</label>
+                        <select id="report-period">
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                            <option value="semester">This Semester</option>
+                            <option value="year">This Year</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="report-format">Format</label>
+                        <select id="report-format">
+                            <option value="pdf">PDF</option>
+                            <option value="word">Word Document</option>
+                            <option value="json">JSON Data</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label>&nbsp;</label>
+                        <button class="btn" id="generate-report-btn">
+                            <i class="fas fa-file-alt"></i>
+                            Generate Report
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <h4>Report Preview</h4>
+                <div class="report-preview">
+                    <div class="report-card" id="report-card">
+                        <div class="report-header">
+                            <h4 id="report-title">Student Report</h4>
+                            <div class="report-meta">
+                                <span id="report-date">Generated on: -</span>
+                                <span id="report-period-display">Period: -</span>
+                            </div>
+                        </div>
+                        <div class="report-content" id="report-content">
+                            <p>Select report type and period, then click "Generate Report" to preview.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <h4>Recent Reports</h4>
+                <div class="table-responsive">
+                    <table class="attendance-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Period</th>
+                                <th>Format</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reports-tbody">
+                            <tr><td colspan="5" class="centered-cell">No reports generated yet.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="settings" class="section" style="display: none;">
+            <h3>Student Settings</h3>
+            
+            <div class="settings-group">
+                <h4>Profile Settings</h4>
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="student-theme">Theme</label>
+                        <select id="student-theme">
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                            <option value="auto">Auto</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="student-language">Language</label>
+                        <select id="student-language">
+                            <option value="en">English</option>
+                            <option value="xh">Xhosa</option>
+                            <option value="st">Sesotho</option>
+                            <option value="tn">Setswana</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="student-timezone">Timezone</label>
+                        <select id="student-timezone">
+                            <option value="Africa/Johannesburg">South Africa (GMT+2)</option>
+                            <option value="UTC">UTC</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <h4>Notification Preferences</h4>
+                <div class="checkboxes">
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="notify-attendance" checked>
+                        <span class="checkmark"></span>
+                        Attendance reminders
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="notify-courses" checked>
+                        <span class="checkmark"></span>
+                        Course updates
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="notify-deadlines" checked>
+                        <span class="checkmark"></span>
+                        Assignment deadlines
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="notify-grades">
+                        <span class="checkmark"></span>
+                        Grade updates
+                    </label>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <h4>Scanner Settings</h4>
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="scanner-camera">Default Camera</label>
+                        <select id="scanner-camera">
+                            <option value="auto">Auto-select</option>
+                            <option value="back">Back Camera</option>
+                            <option value="front">Front Camera</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="scanner-quality">Scan Quality</label>
+                        <select id="scanner-quality">
+                            <option value="high">High</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="checkboxes">
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="auto-scan" checked>
+                        <span class="checkmark"></span>
+                        Auto-scan QR codes
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="sound-effects" checked>
+                        <span class="checkmark"></span>
+                        Sound effects
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="vibrate-on-scan" checked>
+                        <span class="checkmark"></span>
+                        Vibrate on successful scan
+                    </label>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <h4>Data Management</h4>
+                <div class="form-actions">
+                    <button class="btn" id="export-student-data">
+                        <i class="fas fa-download"></i>
+                        Export My Data
+                    </button>
+                    <button class="btn" id="import-student-data">
+                        <i class="fas fa-upload"></i>
+                        Import Data
+                    </button>
+                    <button class="btn" id="clear-student-data">
+                        <i class="fas fa-trash"></i>
+                        Clear All Data
+                    </button>
+                </div>
+                <input type="file" id="import-file" accept=".json" style="display: none;">
+            </div>
+
+            <div class="settings-group">
+                <h4>Account Security</h4>
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" placeholder="Enter current password">
+                    </div>
+                    <div class="form-field">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" placeholder="Enter new password">
+                    </div>
+                    <div class="form-field">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" placeholder="Confirm new password">
+                    </div>
+                    <div class="form-field">
+                        <label>&nbsp;</label>
+                        <button class="btn" id="change-password-btn">
+                            <i class="fas fa-key"></i>
+                            Change Password
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025/26 Code Crafters Edu-Tend System. All rights reserved by Kay-M.</p>
+        </footer>
+    </div>
+
+    <style>
+        /* Course Selection Styles */
+        .mb-16 { margin-bottom: 1rem; }
+        
+        .course-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .info-card h5 {
+            margin: 0 0 0.5rem 0;
+            color: #495057;
+            font-size: 1.1rem;
+        }
+        
+        .info-card p {
+            margin: 0 0 1rem 0;
+            color: #6c757d;
+            font-weight: 500;
+        }
+        
+        .course-stats {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .course-stats .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+            font-size: 0.9rem;
+            color: #495057;
+        }
+        
+        .course-stats .stat i {
+            color: #007bff;
+        }
+        
+        /* QR Codes Grid Styles */
+        .qr-codes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .qr-placeholder {
+            text-align: center;
+            padding: 2rem;
+            color: #6c757d;
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+        
+        .qr-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #adb5bd;
+        }
+        
+        .qr-placeholder p {
+            margin: 0.5rem 0;
+            font-size: 1rem;
+        }
+        
+        .qr-placeholder small {
+            color: #adb5bd;
+            font-size: 0.875rem;
+        }
+        
+        /* Enhanced QR Status Grid */
+        .qr-status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .qr-status-card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .qr-status-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .qr-status-card.active {
+            border-color: #28a745;
+            background: linear-gradient(135deg, #f8fff9 0%, #ffffff 100%);
+        }
+        
+        .qr-status-card.expired {
+            border-color: #dc3545;
+            background: linear-gradient(135deg, #fff8f8 0%, #ffffff 100%);
+        }
+        
+        .qr-status-card.closed {
+            border-color: #ffc107;
+            background: linear-gradient(135deg, #fffdf8 0%, #ffffff 100%);
+        }
+        
+        .qr-status-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .qr-status-header h6 {
+            margin: 0;
+            color: #495057;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        
+        .qr-status-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .qr-status-badge.active {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .qr-status-badge.expired {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .qr-status-badge.closed {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .qr-status-content {
+            margin-bottom: 0.75rem;
+        }
+        
+        .qr-status-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+        
+        .qr-status-item .label {
+            color: #6c757d;
+            font-weight: 500;
+        }
+        
+        .qr-status-item .value {
+            color: #495057;
+            font-weight: 600;
+        }
+        
+        .qr-status-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .btn-scan-now {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: background-color 0.2s;
+            flex: 1;
+        }
+        
+        .btn-scan-now:hover {
+            background: #0056b3;
+        }
+        
+        .btn-scan-now:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+        
+        /* Enhanced Course Info */
+        .course-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .info-card h5 {
+            margin: 0 0 0.5rem 0;
+            color: #495057;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .info-card p {
+            margin: 0 0 1rem 0;
+            color: #6c757d;
+            font-weight: 500;
+        }
+        
+        .course-stats {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .course-stats .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+            font-size: 0.9rem;
+            color: #495057;
+            transition: all 0.2s ease;
+        }
+        
+        .course-stats .stat:hover {
+            border-color: #007bff;
+            box-shadow: 0 2px 4px rgba(0,123,255,0.1);
+        }
+        
+        .course-stats .stat i {
+            color: #007bff;
+        }
+        
+        /* Course Selection Enhancement */
+        .course-selection-enhanced {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .course-selection-enhanced h5 {
+            margin: 0 0 0.75rem 0;
+            color: #495057;
+            font-size: 1rem;
+        }
+        
+        .course-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.75rem;
+        }
+        
+        .course-option {
+            padding: 0.75rem;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+        
+        .course-option:hover {
+            border-color: #007bff;
+            background: #f8f9ff;
+        }
+        
+        .course-option.selected {
+            border-color: #007bff;
+            background: #e7f3ff;
+        }
+        
+        .course-option h6 {
+            margin: 0 0 0.25rem 0;
+            color: #495057;
+            font-size: 0.9rem;
+        }
+        
+        .course-option p {
+            margin: 0;
+            color: #6c757d;
+            font-size: 0.8rem;
+        }
+        
+        .course-option .qr-status {
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        
+        .course-option .qr-status.available {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .course-option .qr-status.none {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        /* Enhanced Scanner Status */
+        .scanner-status.error .status-indicator i {
+            color: #dc3545;
+        }
+        
+        .scanner-status.scanning .status-indicator i {
+            color: #ffc107;
+            animation: pulse 1.5s infinite;
+        }
+        
+        .scanner-status.success .status-indicator i {
+            color: #28a745;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* Notification System Styles */
+        .notification-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            max-width: 400px;
+        }
+        
+        .session-notification {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            margin-bottom: 16px;
+            overflow: hidden;
+            animation: slideInRight 0.3s ease-out;
+            border: 1px solid #e9ecef;
+        }
+        
+        .session-notification.new-session {
+            border-left: 4px solid #28a745;
+        }
+        
+        .notification-content {
+            display: flex;
+            align-items: flex-start;
+            padding: 16px;
+            gap: 12px;
+        }
+        
+        .notification-icon {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .notification-icon i {
+            font-size: 1.2rem;
+        }
+        
+        .notification-text {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .notification-text h6 {
+            margin: 0 0 4px 0;
+            color: #212529;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        
+        .notification-text p {
+            margin: 0 0 4px 0;
+            color: #6c757d;
+            font-size: 0.875rem;
+            line-height: 1.4;
+        }
+        
+        .notification-text small {
+            color: #adb5bd;
+            font-size: 0.75rem;
+        }
+        
+        .notification-close {
+            background: none;
+            border: none;
+            color: #adb5bd;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+        
+        .notification-close:hover {
+            background: #f8f9fa;
+            color: #6c757d;
+        }
+        
+        .notification-actions {
+            display: flex;
+            gap: 8px;
+            padding: 12px 16px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .notification-actions button {
+            flex: 1;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .notification-actions .btn-scan-now {
+            background: #007bff;
+            color: white;
+        }
+        
+        .notification-actions .btn-scan-now:hover {
+            background: #0056b3;
+        }
+        
+        .notification-actions .btn-view-course {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .notification-actions .btn-view-course:hover {
+            background: #545b62;
+        }
+        
+        /* Animation for notifications */
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+        
+        .session-notification.removing {
+            animation: slideOutRight 0.3s ease-in forwards;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is authenticated and has student role
+            function checkAuthentication() {
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+                const currentUser = users.find(user => user.isLoggedIn === true);
+                
+                if (!currentUser) {
+                    // No user is logged in, redirect to login page
+                    alert('Please log in to access the student dashboard.');
+                    window.location.href = 'index.html';
+                    return false;
+                }
+                
+                if (currentUser.role.toLowerCase() !== 'student') {
+                    // User is not a student, redirect to appropriate page
+                    alert('Access denied. This dashboard is for students only.');
+                    if (currentUser.role.toLowerCase() === 'admin') {
+                        window.location.href = 'Admin.html';
+                    } else if (currentUser.role.toLowerCase() === 'lecturer') {
+                        window.location.href = 'Lecturer.html';
+                    } else {
+                        window.location.href = 'index.html';
+                    }
+                    return false;
+                }
+                
+                // User is authenticated and is a student
+                return currentUser;
+            }
+            
+            // Check authentication first
+            const currentUser = checkAuthentication();
+            if (!currentUser) return;
+            
+            // Update welcome message with actual user name
+            const welcomeSpan = document.querySelector('.user-info span');
+            if (welcomeSpan) {
+                welcomeSpan.textContent = `Welcome, ${currentUser.name}`;
+            }
+            
+            // Load user profile data
+            function loadUserProfile() {
+                // Check if user profile exists, if not create default one
+                let profile = JSON.parse(localStorage.getItem('studentProfile') || '{}');
+                
+                if (!profile.name || profile.name === 'Student Name') {
+                    // Create default profile from user registration data
+                    profile = {
+                        name: currentUser.name,
+                        studentId: currentUser.studentId || 'STU' + Math.floor(Math.random() * 1000000),
+                        email: currentUser.email,
+                        year: '1st Year',
+                        course: 'Information Technology',
+                        department: 'Computer Science',
+                        phone: '+27 123 456 789',
+                        address: 'Student Address',
+                        bio: 'A dedicated student pursuing Information Technology with a passion for technology and innovation.'
+                    };
+                    
+                    // Save the profile
+                    localStorage.setItem('studentProfile', JSON.stringify(profile));
+                }
+                
+                return profile;
+            }
+            
+            // Load user profile
+            const userProfile = loadUserProfile();
+            
+            // Initialize profile display
+            loadStudentProfile();
+            
+            // Add logout functionality
+            const logoutBtn = document.querySelector('.logout-btn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Clear the user's login status
+                    const users = JSON.parse(localStorage.getItem('users') || '[]');
+                    const userIndex = users.findIndex(user => user.email === currentUser.email);
+                    if (userIndex !== -1) {
+                        users[userIndex].isLoggedIn = false;
+                        localStorage.setItem('users', JSON.stringify(users));
+                    }
+                    
+                    // Redirect to login page
+                    window.location.href = 'index.html';
+                });
+            }
+            
+            // Navigation functionality
+            const navItems = document.querySelectorAll('.student-nav-item');
+            const sections = document.querySelectorAll('.section');
+
+            navItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    const target = item.getAttribute('data-target');
+                    if (!target || target === 'logout' || target === 'courses') return; // external or no-op
+                    e.preventDefault();
+                    
+                    // Update active state
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    item.classList.add('active');
+                    
+                    // Show/hide sections
+                    sections.forEach(sec => { 
+                        sec.style.display = (sec.id === target) ? 'block' : 'none'; 
+                    });
+
+                    // Initialize sections when shown
+                    if (target === 'profile') loadStudentProfile();
+                    if (target === 'calendar') {
+                        populateCourseOptions();
+                        renderCalendar();
+                        renderEvents();
+                    }
+                    if (target === 'qrcodescanner') {
+                        initializeScanner();
+                        loadScannerCourses();
+                        loadRecentScans();
+                    }
+                    if (target === 'pinenter') {
+                        initializePinEntry();
+                        loadPinHistory();
+                    }
+                    if (target === 'attendance') {
+                        loadAttendanceStats();
+                        loadAttendanceRecords();
+                    }
+                    if (target === 'reports') {
+                        loadReports();
+                        generateReportPreview();
+                    }
+                    if (target === 'settings') {
+                        loadSettings();
+                    }
+                });
+            });
+
+            // ===== Profile Management =====
+            const studentNameEl = document.getElementById('student-name');
+            const studentIdEl = document.getElementById('student-id');
+            const studentEmailEl = document.getElementById('student-email');
+            const studentYearEl = document.getElementById('student-year');
+            const studentCourseEl = document.getElementById('student-course');
+            const studentDeptEl = document.getElementById('student-dept');
+            const studentPhoneEl = document.getElementById('student-phone');
+            const studentAddressEl = document.getElementById('student-address');
+            const studentBioEl = document.getElementById('student-bio');
+            const editProfileBtn = document.getElementById('edit-profile-btn');
+            const editProfileForm = document.getElementById('edit-profile-form');
+            const saveProfileBtn = document.getElementById('save-profile-btn');
+            const cancelEditBtn = document.getElementById('cancel-edit-btn');
+
+            // Form fields
+            const editNameInput = document.getElementById('edit-name');
+            const editEmailInput = document.getElementById('edit-email');
+            const editPhoneInput = document.getElementById('edit-phone');
+            const editAddressInput = document.getElementById('edit-address');
+            const editBioInput = document.getElementById('edit-bio');
+            const editPasswordInput = document.getElementById('edit-password');
+            const editConfirmPasswordInput = document.getElementById('edit-confirm-password');
+
+            function loadStudentProfile(){
+                try {
+                    const profile = JSON.parse(localStorage.getItem('studentProfile') || '{}');
+                    
+                    // Use authenticated user data as fallback
+                    studentNameEl.textContent = profile.name || currentUser.name || 'Student Name';
+                    studentIdEl.textContent = `Student ID: ${profile.studentId || currentUser.studentId || 'STU001'}`;
+                    studentEmailEl.textContent = profile.email || currentUser.email || 'student@example.com';
+                    studentYearEl.textContent = profile.year || '1st Year';
+                    studentCourseEl.textContent = profile.course || 'Information Technology';
+                    studentDeptEl.textContent = profile.department || 'Computer Science';
+                    studentPhoneEl.textContent = profile.phone || '+27 123 456 789';
+                    studentAddressEl.textContent = profile.address || 'Student Address';
+                    studentBioEl.textContent = profile.bio || 'A dedicated student pursuing Information Technology with a passion for technology and innovation.';
+                } catch (e) {
+                    console.error('Error loading profile:', e);
+                }
+            }
+
+            function saveStudentProfile(){
+                const profile = {
+                    name: editNameInput.value.trim(),
+                    studentId: currentUser.studentId || 'STU' + Math.floor(Math.random() * 1000000),
+                    email: editEmailInput.value.trim(),
+                    year: '1st Year', // This would come from the system
+                    course: 'Information Technology', // This would come from the system
+                    department: 'Computer Science', // This would come from the system
+                    phone: editPhoneInput.value.trim(),
+                    address: editAddressInput.value.trim(),
+                    bio: editBioInput.value.trim()
+                };
+
+                if (!profile.name || !profile.email) {
+                    alert('Name and email are required.');
+                    return;
+                }
+
+                if (editPasswordInput.value && editPasswordInput.value !== editConfirmPasswordInput.value) {
+                    alert('Passwords do not match.');
+                    return;
+                }
+
+                // Update the user's information in the users array as well
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+                const userIndex = users.findIndex(user => user.email === currentUser.email);
+                if (userIndex !== -1) {
+                    users[userIndex].name = profile.name;
+                    users[userIndex].studentId = profile.studentId;
+                    localStorage.setItem('users', JSON.stringify(users));
+                }
+
+                localStorage.setItem('studentProfile', JSON.stringify(profile));
+                loadStudentProfile();
+                editProfileForm.style.display = 'none';
+                alert('Profile updated successfully!');
+            }
+
+            function populateEditForm(){
+                const profile = JSON.parse(localStorage.getItem('studentProfile') || '{}');
+                editNameInput.value = profile.name || currentUser.name || '';
+                editEmailInput.value = profile.email || currentUser.email || '';
+                editPhoneInput.value = profile.phone || '';
+                editAddressInput.value = profile.address || '';
+                editBioInput.value = profile.bio || '';
+                editPasswordInput.value = '';
+                editConfirmPasswordInput.value = '';
+            }
+
+            // ===== Calendar Management =====
+            const calendarMonthEl = document.getElementById('calendar-month');
+            const calendarDaysEl = document.getElementById('calendar-days');
+            const prevMonthBtn = document.getElementById('prev-month');
+            const nextMonthBtn = document.getElementById('next-month');
+            const eventTitleInput = document.getElementById('event-title');
+            const eventDateInput = document.getElementById('event-date');
+            const eventTimeInput = document.getElementById('event-time');
+            const eventTypeSelect = document.getElementById('event-type');
+            const eventCourseSelect = document.getElementById('event-course');
+            const eventNotesInput = document.getElementById('event-notes');
+            const addEventBtn = document.getElementById('add-event-btn');
+            const clearEventFormBtn = document.getElementById('clear-event-form-btn');
+            const eventFilterTypeSelect = document.getElementById('event-filter-type');
+            const eventFilterCourseSelect = document.getElementById('event-filter-course');
+            const applyEventFilterBtn = document.getElementById('apply-event-filter-btn');
+            const exportEventsBtn = document.getElementById('export-events-btn');
+            const eventsTbody = document.getElementById('events-tbody');
+
+            let currentDate = new Date();
+            let currentMonth = currentDate.getMonth();
+            let currentYear = currentDate.getFullYear();
+
+            function loadEvents(){
+                try { 
+                    // Load student's own events
+                    const studentEvents = JSON.parse(localStorage.getItem('studentEvents') || '[]');
+                    
+                    // Load admin events that are relevant for students
+                    let adminEvents = [];
+                    try {
+                        const adminEventsData = localStorage.getItem('adminCalendarEvents');
+                        if (adminEventsData) {
+                            const parsed = JSON.parse(adminEventsData);
+                            Object.entries(parsed).forEach(([date, events]) => {
+                                const relevantEvents = events.filter(evt => 
+                                    evt.isAdminEvent && 
+                                    (evt.type === 'Lecture' || evt.type === 'Tutorial' || evt.type === 'Exam' || evt.type === 'Assignment' || evt.type === 'Meeting')
+                                );
+                                
+                                relevantEvents.forEach(evt => {
+                                    adminEvents.push({
+                                        ...evt,
+                                        id: 'admin_' + evt.id,
+                                        date: date, // Use the date from the admin events
+                                        isAdminEvent: true,
+                                        createdBy: 'admin'
+                                    });
+                                });
+                            });
+                        }
+                    } catch (e) {
+                        console.warn('Failed to load admin events:', e);
+                    }
+                    
+                    return [...studentEvents, ...adminEvents];
+                } catch { return []; }
+            }
+            function saveEvents(events){ localStorage.setItem('studentEvents', JSON.stringify(events)); }
+
+            function populateCourseOptions(){
+                try {
+                    const courses = JSON.parse(localStorage.getItem('courses') || '[]');
+                    eventCourseSelect.innerHTML = '<option value="">Select Course</option>';
+                    eventFilterCourseSelect.innerHTML = '<option value="all">All Courses</option>';
+                    
+                    courses.forEach(course => {
+                        const opt1 = document.createElement('option');
+                        opt1.value = course.code;
+                        opt1.textContent = course.name;
+                        eventCourseSelect.appendChild(opt1);
+
+                        const opt2 = document.createElement('option');
+                        opt2.value = course.code;
+                        opt2.textContent = course.name;
+                        eventFilterCourseSelect.appendChild(opt2);
+                    });
+                } catch (e) {
+                    console.error('Error loading courses:', e);
+                }
+            }
+
+            function renderCalendar(){
+                const firstDay = new Date(currentYear, currentMonth, 1);
+                const lastDay = new Date(currentYear, currentMonth + 1, 0);
+                const startDate = new Date(firstDay);
+                startDate.setDate(startDate.getDate() - firstDay.getDay());
+
+                calendarMonthEl.textContent = `${firstDay.toLocaleDateString('en-US', { month: 'long' })} ${currentYear}`;
+                calendarDaysEl.innerHTML = '';
+
+                const events = loadEvents();
+                
+                for (let i = 0; i < 42; i++) {
+                    const date = new Date(startDate);
+                    date.setDate(startDate.getDate() + i);
+                    
+                    const dayEl = document.createElement('div');
+                    dayEl.className = 'day';
+                    
+                    if (date.getMonth() !== currentMonth) {
+                        dayEl.classList.add('next');
+                    }
+                    
+                    if (date.toDateString() === new Date().toDateString()) {
+                        dayEl.classList.add('today');
+                    }
+                    
+                    dayEl.textContent = date.getDate();
+                    
+                    // Check if this date has events
+                    const dayEvents = events.filter(e => e.date === date.toISOString().split('T')[0]);
+                    if (dayEvents.length > 0) {
+                        const hasAdminEvents = dayEvents.some(e => e.isAdminEvent);
+                        if (hasAdminEvents) {
+                            dayEl.style.backgroundColor = 'rgba(255, 107, 107, 0.2)';
+                            dayEl.style.border = '2px solid #ff6b6b';
+                        } else {
+                            dayEl.style.backgroundColor = 'rgba(102, 126, 234, 0.2)';
+                        }
+                        dayEl.style.fontWeight = 'bold';
+                    }
+                    
+                    calendarDaysEl.appendChild(dayEl);
+                }
+            }
+
+            function renderEvents(){
+                const events = loadEvents();
+                const typeFilter = eventFilterTypeSelect?.value || 'all';
+                const courseFilter = eventFilterCourseSelect?.value || 'all';
+                
+                const filtered = events.filter(e => {
+                    if (typeFilter !== 'all' && e.type !== typeFilter) return false;
+                    if (courseFilter !== 'all' && e.course !== courseFilter) return false;
+                    return true;
+                });
+
+                eventsTbody.innerHTML = '';
+                if (!filtered.length){
+                    const tr = document.createElement('tr');
+                    const td = document.createElement('td'); td.colSpan = 7; td.className = 'centered-cell'; td.textContent = 'No events found.';
+                    tr.appendChild(td); eventsTbody.appendChild(tr); return;
+                }
+
+                filtered.forEach(e => {
+                    const tr = document.createElement('tr');
+                    tr.className = e.isAdminEvent ? 'admin-event-row' : '';
+                    tr.innerHTML = `
+                        <td>${e.date || ''}</td>
+                        <td>${e.time || ''}</td>
+                        <td>${e.title || ''} ${e.isAdminEvent ? '<span class="admin-badge">Admin</span>' : ''}</td>
+                        <td>${e.type || ''}</td>
+                        <td>${e.course || ''}</td>
+                        <td>${e.notes || ''}</td>
+                        <td>
+                            ${!e.isAdminEvent ? `
+                                <button class="btn btn-small" data-edit-event="${e.id}">Edit</button>
+                                <button class="btn btn-small" data-del-event="${e.id}">Delete</button>
+                            ` : '<span class="read-only">Read Only</span>'}
+                        </td>`;
+                    eventsTbody.appendChild(tr);
+                });
+
+                // Add event listeners for edit/delete buttons
+                eventsTbody.querySelectorAll('[data-edit-event]').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const eventId = btn.getAttribute('data-edit-event');
+                        const events = loadEvents();
+                        const event = events.find(e => e.id === eventId);
+                        if (event) {
+                            eventTitleInput.value = event.title || '';
+                            eventDateInput.value = event.date || '';
+                            eventTimeInput.value = event.time || '';
+                            eventTypeSelect.value = event.type || 'assignment';
+                            eventCourseSelect.value = event.course || '';
+                            eventNotesInput.value = event.notes || '';
+                            addEventBtn.textContent = 'Update Event';
+                            addEventBtn.setAttribute('data-edit-id', eventId);
+                        }
+                    });
+                });
+
+                eventsTbody.querySelectorAll('[data-del-event]').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const eventId = btn.getAttribute('data-del-event');
+                        if (confirm('Delete this event?')) {
+                            const events = loadEvents().filter(e => e.id !== eventId);
+                            saveEvents(events);
+                            renderEvents();
+                            renderCalendar();
+                        }
+                    });
+                });
+            }
+
+            function refreshAdminEvents(){
+                renderEvents();
+                renderCalendar();
+            }
+
+            function addEvent(){
+                const title = eventTitleInput.value.trim();
+                const date = eventDateInput.value;
+                const time = eventTimeInput.value;
+                const type = eventTypeSelect.value;
+                const course = eventCourseSelect.value;
+                const notes = eventNotesInput.value.trim();
+
+                if (!title || !date) {
+                    alert('Title and date are required.');
+                    return;
+                }
+
+                const events = loadEvents();
+                const editId = addEventBtn.getAttribute('data-edit-id');
+                
+                if (editId) {
+                    // Update existing event
+                    const index = events.findIndex(e => e.id === editId);
+                    if (index !== -1) {
+                        events[index] = { ...events[index], title, date, time, type, course, notes };
+                    }
+                    addEventBtn.removeAttribute('data-edit-id');
+                    addEventBtn.textContent = 'Add Event';
+                } else {
+                    // Add new event
+                    const newEvent = {
+                        id: Date.now().toString(),
+                        title, date, time, type, course, notes,
+                        createdAt: new Date().toISOString()
+                    };
+                    events.push(newEvent);
+                }
+
+                saveEvents(events);
+                renderEvents();
+                renderCalendar();
+                clearEventForm();
+            }
+
+            function clearEventForm(){
+                eventTitleInput.value = '';
+                eventDateInput.value = '';
+                eventTimeInput.value = '';
+                eventTypeSelect.value = 'assignment';
+                eventCourseSelect.value = '';
+                eventNotesInput.value = '';
+                addEventBtn.textContent = 'Add Event';
+                addEventBtn.removeAttribute('data-edit-id');
+            }
+
+            function exportEvents(){
+                const events = loadEvents();
+                const data = {
+                    exportDate: new Date().toISOString(),
+                    events: events
+                };
+                const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = `student-events-${new Date().toISOString().slice(0,10)}.json`;
+                a.click();
+                URL.revokeObjectURL(a.href);
+            }
+
+            // Event listeners
+            editProfileBtn?.addEventListener('click', () => {
+                populateEditForm();
+                editProfileForm.style.display = 'block';
+            });
+
+            saveProfileBtn?.addEventListener('click', saveStudentProfile);
+            cancelEditBtn?.addEventListener('click', () => {
+                editProfileForm.style.display = 'none';
+            });
+
+            prevMonthBtn?.addEventListener('click', () => {
+                currentMonth--;
+                if (currentMonth < 0) {
+                    currentMonth = 11;
+                    currentYear--;
+                }
+                renderCalendar();
+            });
+
+            nextMonthBtn?.addEventListener('click', () => {
+                currentMonth++;
+                if (currentMonth > 11) {
+                    currentMonth = 0;
+                    currentYear++;
+                }
+                renderCalendar();
+            });
+
+            addEventBtn?.addEventListener('click', addEvent);
+            clearEventFormBtn?.addEventListener('click', clearEventForm);
+            applyEventFilterBtn?.addEventListener('click', renderEvents);
+            exportEventsBtn?.addEventListener('click', exportEvents);
+
+            // ===== QR Code Scanner Management =====
+            const startScanBtn = document.getElementById('start-scan-btn');
+            const stopScanBtn = document.getElementById('stop-scan-btn');
+            const scannerVideo = document.getElementById('scanner-video');
+            const scannerCanvas = document.getElementById('scanner-canvas');
+            const scannerResults = document.getElementById('scanner-results');
+            const closeResultBtn = document.getElementById('close-result-btn');
+            const markAttendanceBtn = document.getElementById('mark-attendance-btn');
+            const manualPinInput = document.getElementById('manual-pin');
+            const submitPinBtn = document.getElementById('submit-pin-btn');
+            const recentScansTbody = document.getElementById('recent-scans-tbody');
+            const statusText = document.getElementById('status-text');
+            const scannerStatus = document.getElementById('scanner-status');
+            
+            // Course selection elements
+            const scannerCourseSelect = document.getElementById('scanner-course-select');
+            const refreshCoursesBtn = document.getElementById('refresh-courses-btn');
+            const courseInfo = document.getElementById('course-info');
+            const selectedCourseName = document.getElementById('selected-course-name');
+            const selectedCourseCode = document.getElementById('selected-course-code');
+            const courseSessions = document.getElementById('course-sessions');
+            const courseAttendance = document.getElementById('course-attendance');
+            const qrCodesGrid = document.getElementById('qr-codes-grid');
+
+            let stream = null;
+            let scanning = false;
+            let scanInterval = null;
+
+            function loadStudentScans(){
+                try { return JSON.parse(localStorage.getItem('studentScans') || '[]'); } catch { return []; }
+            }
+            function saveStudentScans(scans){ localStorage.setItem('studentScans', JSON.stringify(scans)); }
+
+            // Load available courses for scanner
+            function loadScannerCourses() {
+                const courses = JSON.parse(localStorage.getItem('courses') || '[]');
+                scannerCourseSelect.innerHTML = '<option value="">Select a course to scan QR code for</option>';
+                
+                courses.forEach(course => {
+                    const option = document.createElement('option');
+                    option.value = course.code;
+                    option.textContent = `${course.code} - ${course.name}`;
+                    scannerCourseSelect.appendChild(option);
+                });
+                
+                // Check if there's a pre-selected course from studentc.html
+                checkForPreSelectedCourse();
+            }
+
+            // Check for pre-selected course from studentc.html
+            function checkForPreSelectedCourse() {
+                const selectedCourseData = localStorage.getItem('selectedCourseForScanner');
+                if (selectedCourseData) {
+                    try {
+                        const courseData = JSON.parse(selectedCourseData);
+                        const timestamp = new Date(courseData.timestamp);
+                        const now = new Date();
+                        
+                        // Check if the selection is recent (within 5 minutes)
+                        if (now - timestamp < 5 * 60 * 1000) {
+                            // Set the course in the dropdown
+                            scannerCourseSelect.value = courseData.code;
+                            
+                            // Update the course info and QR codes
+                            updateCourseInfo(courseData.code);
+                            loadCourseQRCodes(courseData.code);
+                            
+                            // Clear the localStorage to prevent future auto-selection
+                            localStorage.removeItem('selectedCourseForScanner');
+                            
+                            // Show success message
+                            showNotification(`Course "${courseData.name}" selected for QR scanning`, 'success');
+                        } else {
+                            // Selection is too old, remove it
+                            localStorage.removeItem('selectedCourseForScanner');
+                        }
+                    } catch (error) {
+                        console.error('Error parsing selected course data:', error);
+                        localStorage.removeItem('selectedCourseForScanner');
+                    }
+                }
+            }
+
+            // Load course-specific QR codes and sessions
+            function loadCourseQRCodes(courseCode){
+                try {
+                    const courseSessions = JSON.parse(localStorage.getItem('courseSessions') || '[]');
+                    const courseQRs = courseSessions.filter(s => s.courseCode === courseCode);
+                    
+                    qrCodesGrid.innerHTML = '';
+                    
+                    if (!courseQRs.length) {
+                        qrCodesGrid.innerHTML = `
+                            <div class="qr-placeholder">
+                                <i class="fas fa-info-circle"></i>
+                                <p>No active QR codes found for this course</p>
+                                <small>Ask your lecturer to generate a QR code for attendance</small>
+                            </div>
+                        `;
+                        return;
+                    }
+
+                    courseQRs.forEach(session => {
+                        const qrCard = document.createElement('div');
+                        qrCard.className = 'qr-code-card';
+                        qrCard.innerHTML = `
+                            <div class="qr-header">
+                                <h5>${session.courseName || session.courseCode}</h5>
+                                <span class="session-status ${session.status}">${session.status}</span>
+                            </div>
+                            <div class="qr-content">
+                                <div class="qr-info">
+                                    <p><strong>Session ID:</strong> ${session.id}</p>
+                                    <p><strong>PIN:</strong> ${session.pin}</p>
+                                    <p><strong>Lecturer:</strong> ${session.lecturerName || 'Unknown'}</p>
+                                    <p><strong>Created:</strong> ${new Date(session.created).toLocaleString()}</p>
+                                    ${session.expiresAt ? `<p><strong>Expires:</strong> ${new Date(session.expiresAt).toLocaleString()}</p>` : ''}
+                                </div>
+                                <div class="qr-actions">
+                                    <button class="btn btn-small" onclick="scanSpecificQR('${session.id}')">
+                                        <i class="fas fa-qrcode"></i>
+                                        Scan This QR
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                        qrCodesGrid.appendChild(qrCard);
+                    });
+                } catch (e) {
+                    console.error('Error loading course QR codes:', e);
+                }
+            }
+
+            // Update course info display
+            function updateCourseInfo(courseCode){
+                try {
+                    const courses = JSON.parse(localStorage.getItem('courses') || '[]');
+                    const course = courses.find(c => c.code === courseCode);
+                    
+                    if (course) {
+                        selectedCourseName.textContent = course.name;
+                        selectedCourseCode.textContent = course.code;
+                        
+                        // Calculate course statistics
+                        const scans = loadStudentScans();
+                        const courseScans = scans.filter(s => s.courseCode === courseCode);
+                        const totalSessions = courseScans.length;
+                        const presentSessions = courseScans.filter(s => s.status === 'Present').length;
+                        const attendanceRate = totalSessions > 0 ? Math.round((presentSessions / totalSessions) * 100) : 0;
+                        
+                        courseSessions.textContent = totalSessions;
+                        courseAttendance.textContent = `${attendanceRate}%`;
+                        
+                        courseInfo.style.display = 'block';
+                        startScanBtn.disabled = false;
+                    } else {
+                        courseInfo.style.display = 'none';
+                        startScanBtn.disabled = true;
+                    }
+                } catch (e) {
+                    console.error('Error updating course info:', e);
+                }
+            }
+
+            // Scan specific QR code by session ID
+            window.scanSpecificQR = function(sessionId){
+                try {
+                    const courseSessions = JSON.parse(localStorage.getItem('courseSessions') || '[]');
+                    const session = courseSessions.find(s => s.id === sessionId);
+                    
+                    if (session) {
+                        handleQRCodeDetected(session);
+                    } else {
+                        alert('Session not found. Please refresh and try again.');
+                    }
+                } catch (e) {
+                    console.error('Error scanning specific QR:', e);
+                    alert('Error scanning QR code. Please try again.');
+                }
+            };
+
+            function initializeScanner(){
+                // Check if camera is available
+                if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                    statusText.textContent = 'Camera not available';
+                    scannerStatus.classList.add('error');
+                    return;
+                }
+                statusText.textContent = 'Ready to Scan';
+                scannerStatus.classList.remove('error', 'scanning', 'success');
+            }
+
+            async function startScanner(){
+                try {
+                    stream = await navigator.mediaDevices.getUserMedia({ 
+                        video: { 
+                            facingMode: 'environment',
+                            width: { ideal: 640 },
+                            height: { ideal: 480 }
+                        } 
+                    });
+                    
+                    scannerVideo.srcObject = stream;
+                    startScanBtn.style.display = 'none';
+                    stopScanBtn.style.display = 'inline-block';
+                    scanning = true;
+                    statusText.textContent = 'Scanning...';
+                    scannerStatus.classList.add('scanning');
+                    
+                    // Start scanning for QR codes
+                    scanInterval = setInterval(scanForQRCode, 1000);
+                    
+                } catch (error) {
+                    console.error('Error accessing camera:', error);
+                    statusText.textContent = 'Camera access denied';
+                    scannerStatus.classList.add('error');
+                }
+            }
+
+            function stopScanner(){
+                if (stream) {
+                    stream.getTracks().forEach(track => track.stop());
+                    stream = null;
+                }
+                if (scanInterval) {
+                    clearInterval(scanInterval);
+                    scanInterval = null;
+                }
+                
+                startScanBtn.style.display = 'inline-block';
+                stopScanBtn.style.display = 'none';
+                scanning = false;
+                statusText.textContent = 'Ready to Scan';
+                scannerStatus.classList.remove('scanning');
+            }
+
+            function scanForQRCode(){
+                if (!scanning || !scannerVideo.videoWidth) return;
+                
+                const context = scannerCanvas.getContext('2d');
+                scannerCanvas.width = scannerVideo.videoWidth;
+                scannerCanvas.height = scannerVideo.videoHeight;
+                context.drawImage(scannerVideo, 0, 0);
+                
+                const imageData = context.getImageData(0, 0, scannerCanvas.width, scannerCanvas.height);
+                
+                // In a real implementation, you would use a QR code library like jsQR
+                // For now, we'll simulate scanning by checking for active sessions
+                // This simulates what would happen when a real QR code is scanned
+                if (Math.random() < 0.05) { // 5% chance to simulate detection
+                    // Get active course sessions from localStorage
+                    try {
+                        const courseSessions = JSON.parse(localStorage.getItem('courseSessions') || '[]');
+                        const activeSession = courseSessions.find(s => s.status === 'active');
+                        
+                        if (activeSession && activeSession.sessionData) {
+                            // Use the actual session data from lecturer
+                            handleQRCodeDetected(activeSession.sessionData);
+                        } else {
+                            // Fallback to mock data if no active sessions
+                            const mockQRData = {
+                                pin: Math.floor(100000 + Math.random() * 900000).toString(),
+                                courseCode: 'HCI',
+                                courseName: 'Human Computer Interaction II',
+                                sessionId: 'SESS' + Date.now(),
+                                lecturerId: 'L001',
+                                lecturerName: 'Dr. Smith',
+                                status: 'active',
+                                created: new Date().toISOString()
+                            };
+                            handleQRCodeDetected(mockQRData);
+                        }
+                    } catch (e) {
+                        console.warn('Error accessing course sessions:', e);
+                        // Fallback to mock data
+                        const mockQRData = {
+                            pin: Math.floor(100000 + Math.random() * 900000).toString(),
+                            courseCode: 'HCI',
+                            courseName: 'Human Computer Interaction II',
+                            sessionId: 'SESS' + Date.now(),
+                            lecturerId: 'L001',
+                            lecturerName: 'Dr. Smith',
+                            status: 'active',
+                            created: new Date().toISOString()
+                        };
+                        handleQRCodeDetected(mockQRData);
+                    }
+                }
+            }
+
+            function handleQRCodeDetected(data){
+                stopScanner();
+                
+                // Check if session is expired
+                if (data.expiresAt && new Date(data.expiresAt) < new Date()) {
+                    data.status = 'Expired';
+                }
+                
+                // Display scan result
+                document.getElementById('scanned-pin').textContent = data.pin;
+                document.getElementById('scanned-course').textContent = data.courseName || data.courseCode;
+                document.getElementById('scanned-lecturer').textContent = data.lecturerName || 'Unknown';
+                document.getElementById('scanned-session').textContent = data.sessionId;
+                document.getElementById('scanned-status').textContent = data.status;
+                
+                scannerResults.style.display = 'block';
+                statusText.textContent = 'QR Code Detected';
+                scannerStatus.classList.remove('scanning');
+                scannerStatus.classList.add('success');
+                
+                // Store the scanned data for attendance marking
+                window.lastScannedData = data;
+            }
+
+            function markAttendance(){
+                if (!window.lastScannedData) {
+                    alert('No QR code data available. Please scan a QR code first.');
+                    return;
+                }
+                
+                const data = window.lastScannedData;
+                
+                if (data.status === 'Expired' || data.status === 'closed') {
+                    alert('This QR code has expired. Please ask the lecturer for a new one.');
+                    return;
+                }
+                
+                // Record the scan
+                const scan = {
+                    id: 'SCAN' + Date.now(),
+                    date: new Date().toLocaleDateString(),
+                    time: new Date().toLocaleTimeString(),
+                    pin: data.pin,
+                    courseCode: data.courseCode,
+                    courseName: data.courseName,
+                    lecturerId: data.lecturerId,
+                    lecturerName: data.lecturerName,
+                    sessionId: data.sessionId,
+                    status: 'Present',
+                    studentId: currentUser.studentId || '230018440', // This would come from the logged-in student
+                    studentName: currentUser.name || 'Siyabonga Sithole' // This would come from the logged-in student
+                };
+                
+                const scans = loadStudentScans();
+                scans.unshift(scan);
+                saveStudentScans(scans);
+                
+                // Update lecturer sessions (for attendance tracking)
+                updateLecturerSessions(scan);
+                
+                alert('Attendance marked successfully!');
+                closeScannerResults();
+                loadRecentScans();
+                
+                // Clear the stored data
+                window.lastScannedData = null;
+            }
+
+            function updateLecturerSessions(attendanceRecord){
+                try {
+                    // Get existing attendance records
+                    const attendanceRecords = JSON.parse(localStorage.getItem('courseAttendanceRecords') || '[]');
+                    
+                    // Add the new attendance record
+                    attendanceRecords.push({
+                        ...attendanceRecord,
+                        timestamp: new Date().toISOString()
+                    });
+                    
+                    // Save back to localStorage
+                    localStorage.setItem('courseAttendanceRecords', JSON.stringify(attendanceRecords));
+                    
+                    console.log('Attendance record saved:', attendanceRecord);
+                } catch (e) {
+                    console.warn('Failed to save attendance record:', e);
+                }
+            }
+
+            function submitManualPin(){
+                const pin = manualPinInput.value.trim();
+                if (!pin) {
+                    alert('Please enter a PIN');
+                    return;
+                }
+                
+                // Simulate QR code data from PIN
+                const mockQRData = {
+                    pin: pin,
+                    course: 'HCI-201',
+                    lecturer: 'Dr. Smith',
+                    sessionId: 'SESS' + Date.now(),
+                    status: 'Active'
+                };
+                
+                handleQRCodeDetected(mockQRData);
+                manualPinInput.value = '';
+            }
+
+            function closeScannerResults(){
+                scannerResults.style.display = 'none';
+                statusText.textContent = 'Ready to Scan';
+                scannerStatus.classList.remove('success');
+            }
+
+            function loadRecentScans(){
+                const scans = loadStudentScans();
+                recentScansTbody.innerHTML = '';
+                
+                if (!scans.length){
+                    const tr = document.createElement('tr');
+                    const td = document.createElement('td'); td.colSpan = 7; td.className = 'centered-cell'; td.textContent = 'No recent scans found.';
+                    tr.appendChild(td); recentScansTbody.appendChild(tr); return;
+                }
+                
+                scans.slice(0, 10).forEach(scan => { // Show last 10 scans
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${scan.date || ''}</td>
+                        <td>${scan.time || ''}</td>
+                        <td>${scan.pin || ''}</td>
+                        <td>${scan.course || ''}</td>
+                        <td>${scan.lecturer || ''}</td>
+                        <td><span class="status-badge present">${scan.status || ''}</span></td>
+                        <td>
+                            <button class="btn btn-small" data-view-scan="${scan.id}">View</button>
+                        </td>`;
+                    recentScansTbody.appendChild(tr);
+                });
+            }
+
+            // Event listeners for scanner
+            startScanBtn?.addEventListener('click', startScanner);
+            stopScanBtn?.addEventListener('click', stopScanner);
+            closeResultBtn?.addEventListener('click', closeScannerResults);
+            markAttendanceBtn?.addEventListener('click', markAttendance);
+            submitPinBtn?.addEventListener('click', submitManualPin);
+
+            // Event listeners for course selection
+            scannerCourseSelect?.addEventListener('change', (e) => {
+                const courseCode = e.target.value;
+                if (courseCode) {
+                    updateCourseInfo(courseCode);
+                    loadCourseQRCodes(courseCode);
+                } else {
+                    courseInfo.style.display = 'none';
+                    startScanBtn.disabled = true;
+                    qrCodesGrid.innerHTML = `
+                        <div class="qr-placeholder">
+                            <i class="fas fa-qrcode"></i>
+                            <p>Select a course to view available QR codes</p>
+                        </div>
+                    `;
+                }
+            });
+
+            refreshCoursesBtn?.addEventListener('click', () => {
+                loadScannerCourses();
+                if (scannerCourseSelect.value) {
+                    updateCourseInfo(scannerCourseSelect.value);
+                    loadCourseQRCodes(scannerCourseSelect.value);
+                }
+            });
+
+            // ===== PIN Entry Management =====
+            const pinInputElements = [
+                document.getElementById('pin-input-1'),
+                document.getElementById('pin-input-2'),
+                document.getElementById('pin-input-3'),
+                document.getElementById('pin-input-4'),
+                document.getElementById('pin-input-5'),
+                document.getElementById('pin-input-6')
+            ];
+            const submitPinEntryBtn = document.getElementById('submit-pin-entry-btn');
+            const clearPinBtn = document.getElementById('clear-pin-btn');
+            const pinResults = document.getElementById('pin-results');
+            const closePinResultBtn = document.getElementById('close-pin-result-btn');
+            const markPinAttendanceBtn = document.getElementById('mark-pin-attendance-btn');
+            const quickPinInput = document.getElementById('quick-pin');
+            const quickSubmitPinBtn = document.getElementById('quick-submit-pin-btn');
+            const pinHistoryTbody = document.getElementById('pin-history-tbody');
+            const pinStatusText = document.getElementById('pin-status-text');
+            const pinStatus = document.getElementById('pin-status');
+
+            function loadPinEntries(){
+                try { return JSON.parse(localStorage.getItem('studentPinEntries') || '[]'); } catch { return []; }
+            }
+            function savePinEntries(entries){ localStorage.setItem('studentPinEntries', JSON.stringify(entries)); }
+
+            function initializePinEntry(){
+                pinStatusText.textContent = 'Ready to Enter PIN';
+                pinStatus.classList.remove('error', 'verifying', 'success');
+                
+                // Set up PIN input navigation
+                pinInputElements.forEach((input, index) => {
+                    input.addEventListener('input', (e) => {
+                        const value = e.target.value;
+                        if (value && /^[0-9]$/.test(value)) {
+                            if (index < pinInputElements.length - 1) {
+                                pinInputElements[index + 1].focus();
+                            }
+                        }
+                    });
+
+                    input.addEventListener('keydown', (e) => {
+                        if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                            pinInputElements[index - 1].focus();
+                        }
+                    });
+                });
+            }
+
+            function getPinFromInputs(){
+                return pinInputElements.map(input => input.value).join('');
+            }
+
+            function clearPinInputs(){
+                pinInputElements.forEach(input => {
+                    input.value = '';
+                });
+                pinInputElements[0].focus();
+            }
+
+            function validatePin(pin){
+                if (!pin || pin.length !== 6) {
+                    return { valid: false, message: 'PIN must be 6 digits' };
+                }
+                if (!/^[0-9]{6}$/.test(pin)) {
+                    return { valid: false, message: 'PIN must contain only numbers' };
+                }
+                return { valid: true };
+            }
+
+            function verifyPin(pin){
+                // Verify PIN against lecturer course sessions
+                try {
+                    const courseSessions = JSON.parse(localStorage.getItem('courseSessions') || '[]');
+                    const activeSession = courseSessions.find(s => s.pin === pin && s.status === 'active');
+                    
+                    if (activeSession) {
+                        // Check if session has expired
+                        let status = 'active';
+                        let expiresText = 'No expiration set';
+                        
+                        if (activeSession.expiresAt) {
+                            const expiresAt = new Date(activeSession.expiresAt);
+                            const now = new Date();
+                            if (expiresAt < now) {
+                                status = 'Expired';
+                                expiresText = 'Expired';
+                            } else {
+                                const diffMs = expiresAt - now;
+                                const diffMins = Math.ceil(diffMs / 60000);
+                                expiresText = `${diffMins} minutes remaining`;
+                            }
+                        }
+                        
+                        return {
+                            valid: true,
+                            data: {
+                                pin: pin,
+                                courseCode: activeSession.courseCode,
+                                courseName: activeSession.courseName,
+                                lecturerId: activeSession.lecturerId || 'L001',
+                                lecturerName: activeSession.lecturerName || 'Dr. Lecturer',
+                                sessionId: activeSession.id,
+                                status: status,
+                                expires: expiresText,
+                                created: activeSession.created
+                            }
+                        };
+                    } else {
+                        return {
+                            valid: false,
+                            message: 'Invalid or expired PIN'
+                        };
+                    }
+                } catch (e) {
+                    console.warn('Error verifying PIN:', e);
+                    return {
+                        valid: false,
+                        message: 'Error verifying PIN'
+                    };
+                }
+            }
+
+            function submitPinEntry(){
+                const pin = getPinFromInputs();
+                const validation = validatePin(pin);
+                
+                if (!validation.valid) {
+                    alert(validation.message);
+                    return;
+                }
+
+                pinStatusText.textContent = 'Verifying PIN...';
+                pinStatus.classList.add('verifying');
+                
+                // Simulate verification delay
+                setTimeout(() => {
+                    const verification = verifyPin(pin);
+                    
+                    if (verification.valid) {
+                        displayPinResult(verification.data);
+                        pinStatusText.textContent = 'PIN Verified';
+                        pinStatus.classList.remove('verifying');
+                        pinStatus.classList.add('success');
+                    } else {
+                        alert(verification.message);
+                        pinStatusText.textContent = 'PIN Invalid';
+                        pinStatus.classList.remove('verifying');
+                        pinStatus.classList.add('error');
+                        setTimeout(() => {
+                            pinStatusText.textContent = 'Ready to Enter PIN';
+                            pinStatus.classList.remove('error');
+                        }, 2000);
+                    }
+                }, 1000);
+            }
+
+            function displayPinResult(data){
+                document.getElementById('verified-pin').textContent = data.pin;
+                document.getElementById('verified-course').textContent = data.courseName || data.courseCode;
+                document.getElementById('verified-lecturer').textContent = data.lecturerName || 'Unknown';
+                document.getElementById('verified-session').textContent = data.sessionId;
+                document.getElementById('verified-status').textContent = data.status;
+                document.getElementById('verified-expires').textContent = data.expires;
+                
+                pinResults.style.display = 'block';
+                
+                // Store the verified data for attendance marking
+                window.lastVerifiedData = data;
+            }
+
+            function markPinAttendance(){
+                if (!window.lastVerifiedData) {
+                    alert('No PIN verification data available. Please verify a PIN first.');
+                    return;
+                }
+                
+                const data = window.lastVerifiedData;
+                
+                if (data.status === 'Expired') {
+                    alert('This PIN has expired. Please ask the lecturer for a new one.');
+                    return;
+                }
+                
+                // Record the PIN entry
+                const entry = {
+                    id: 'PIN' + Date.now(),
+                    date: new Date().toLocaleDateString(),
+                    time: new Date().toLocaleTimeString(),
+                    pin: data.pin,
+                    courseCode: data.courseCode,
+                    courseName: data.courseName,
+                    lecturerId: data.lecturerId,
+                    lecturerName: data.lecturerName,
+                    sessionId: data.sessionId,
+                    status: 'Present',
+                    studentId: currentUser.studentId || '230018440', // This would come from the logged-in student
+                    studentName: currentUser.name || 'Siyabonga Sithole' // This would come from the logged-in student
+                };
+                
+                const entries = loadPinEntries();
+                entries.unshift(entry);
+                savePinEntries(entries);
+                
+                // Update lecturer sessions (for attendance tracking)
+                updateLecturerSessions(entry);
+                
+                alert('Attendance marked successfully!');
+                closePinResults();
+                loadPinHistory();
+                clearPinInputs();
+                
+                // Clear the stored data
+                window.lastVerifiedData = null;
+            }
+
+            function closePinResults(){
+                pinResults.style.display = 'none';
+                pinStatusText.textContent = 'Ready to Enter PIN';
+                pinStatus.classList.remove('success');
+            }
+
+            function quickSubmitPin(){
+                const pin = quickPinInput.value.trim();
+                const validation = validatePin(pin);
+                
+                if (!validation.valid) {
+                    alert(validation.message);
+                    return;
+                }
+
+                // Fill the individual PIN inputs
+                pinInputElements.forEach((input, index) => {
+                    input.value = pin[index] || '';
+                });
+
+                submitPinEntry();
+                quickPinInput.value = '';
+            }
+
+            function loadPinHistory(){
+                const entries = loadPinEntries();
+                pinHistoryTbody.innerHTML = '';
+                
+                if (!entries.length){
+                    const tr = document.createElement('tr');
+                    const td = document.createElement('td'); td.colSpan = 7; td.className = 'centered-cell'; td.textContent = 'No PIN entries found.';
+                    tr.appendChild(td); pinHistoryTbody.appendChild(tr); return;
+                }
+                
+                entries.slice(0, 10).forEach(entry => { // Show last 10 entries
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${entry.date || ''}</td>
+                        <td>${entry.time || ''}</td>
+                        <td>${entry.pin || ''}</td>
+                        <td>${entry.course || ''}</td>
+                        <td>${entry.lecturer || ''}</td>
+                        <td><span class="status-badge present">${entry.status || ''}</span></td>
+                        <td>
+                            <button class="btn btn-small" data-view-entry="${entry.id}">View</button>
+                        </td>`;
+                    pinHistoryTbody.appendChild(tr);
+                });
+            }
+
+            // Event listeners for PIN entry
+            submitPinEntryBtn?.addEventListener('click', submitPinEntry);
+            clearPinBtn?.addEventListener('click', clearPinInputs);
+            closePinResultBtn?.addEventListener('click', closePinResults);
+            markPinAttendanceBtn?.addEventListener('click', markPinAttendance);
+            quickSubmitPinBtn?.addEventListener('click', quickSubmitPin);
+
+            // ===== Attendance Management =====
+            const totalSessionsEl = document.getElementById('total-sessions');
+            const presentCountEl = document.getElementById('present-count');
+            const absentCountEl = document.getElementById('absent-count');
+            const attendanceRateEl = document.getElementById('attendance-rate');
+            const attendanceCourseFilterSelect = document.getElementById('attendance-course-filter');
+            const attendanceDateFilterSelect = document.getElementById('attendance-date-filter');
+            const applyAttendanceFiltersBtn = document.getElementById('apply-attendance-filters');
+            const attendanceTbody = document.getElementById('attendance-tbody');
+
+            function loadAttendanceStats(){
+                try {
+                    const sessions = JSON.parse(localStorage.getItem('lecturerSessions') || '[]');
+                    totalSessionsEl.textContent = sessions.length;
+                    presentCountEl.textContent = sessions.reduce((sum, s) => sum + (s.presentCount || 0), 0);
+                    absentCountEl.textContent = sessions.reduce((sum, s) => sum + (s.totalCount || 0) - (s.presentCount || 0), 0);
+                    
+                    const totalAttendance = presentCountEl.textContent;
+                    const totalSessions = totalSessionsEl.textContent;
+                    attendanceRateEl.textContent = totalSessions ? `${((totalAttendance / totalSessions) * 100).toFixed(1)}%` : '0%';
+
+                    // Populate course filter options
+                    const courses = JSON.parse(localStorage.getItem('courses') || '[]');
+                    attendanceCourseFilterSelect.innerHTML = '<option value="">All Courses</option>';
+                    courses.forEach(course => {
+                        const opt = document.createElement('option');
+                        opt.value = course.code;
+                        opt.textContent = course.name;
+                        attendanceCourseFilterSelect.appendChild(opt);
+                    });
+                } catch (e) {
+                    console.error('Error loading attendance stats:', e);
+                }
+            }
+
+            function loadAttendanceRecords(){
+                try {
+                    const scans = loadStudentScans();
+                    const sessions = JSON.parse(localStorage.getItem('lecturerSessions') || '[]');
+                    const courseFilter = attendanceCourseFilterSelect?.value || 'all';
+                    const dateFilter = attendanceDateFilterSelect?.value || 'all';
+
+                    let filteredScans = scans;
+                    if (courseFilter !== 'all') {
+                        filteredScans = filteredScans.filter(s => s.course === courseFilter);
+                    }
+                    if (dateFilter !== 'all') {
+                        const startDate = new Date(dateFilter === 'week' ? new Date().setDate(new Date().getDate() - 7) : new Date().setDate(new Date().getDate() - 30));
+                        filteredScans = filteredScans.filter(s => new Date(s.date) >= startDate);
+                    }
+
+                    attendanceTbody.innerHTML = '';
+                    if (!filteredScans.length){
+                        const tr = document.createElement('tr');
+                        const td = document.createElement('td'); td.colSpan = 8; td.className = 'centered-cell'; td.textContent = 'No attendance records found.';
+                        tr.appendChild(td); attendanceTbody.appendChild(tr); return;
+                    }
+
+                    filteredScans.forEach(scan => {
+                        const session = sessions.find(s => s.id === scan.sessionId);
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `
+                            <td>${scan.date || ''}</td>
+                            <td>${scan.time || ''}</td>
+                            <td>${scan.course || ''}</td>
+                            <td>${session?.lecturer || ''}</td>
+                            <td>${scan.sessionId || ''}</td>
+                            <td>${scan.status === 'Present' ? 'QR Scan' : 'Manual PIN'}</td>
+                            <td><span class="status-badge ${scan.status === 'Present' ? 'present' : 'absent'}">${scan.status}</span></td>
+                            <td>
+                                <button class="btn btn-small" data-view-scan="${scan.id}">View</button>
+                            </td>`;
+                        attendanceTbody.appendChild(tr);
+                    });
+
+                    // Add event listeners for view scan buttons
+                    attendanceTbody.querySelectorAll('[data-view-scan]').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const scanId = btn.getAttribute('data-view-scan');
+                            const scan = scans.find(s => s.id === scanId);
+                            if (scan) {
+                                alert(`Date: ${scan.date}\nTime: ${scan.time}\nPIN: ${scan.pin}\nCourse: ${scan.course}\nLecturer: ${scan.lecturer}\nSession ID: ${scan.sessionId}\nStatus: ${scan.status}`);
+                            }
+                        });
+                    });
+                } catch (e) {
+                    console.error('Error loading attendance records:', e);
+                }
+            }
+
+            applyAttendanceFiltersBtn?.addEventListener('click', loadAttendanceRecords);
+
+            // ===== Reports Management =====
+            const reportTypeSelect = document.getElementById('report-type');
+            const reportPeriodSelect = document.getElementById('report-period');
+            const reportFormatSelect = document.getElementById('report-format');
+            const generateReportBtn = document.getElementById('generate-report-btn');
+            const reportCard = document.getElementById('report-card');
+            const reportContent = document.getElementById('report-content');
+            const reportTitle = document.getElementById('report-title');
+            const reportDate = document.getElementById('report-date');
+            const reportPeriodDisplay = document.getElementById('report-period-display');
+            const reportsTbody = document.getElementById('reports-tbody');
+
+            function loadReports(){
+                try {
+                    const reports = JSON.parse(localStorage.getItem('studentReports') || '[]');
+                    reportsTbody.innerHTML = '';
+                    if (!reports.length){
+                        const tr = document.createElement('tr');
+                        const td = document.createElement('td'); td.colSpan = 5; td.className = 'centered-cell'; td.textContent = 'No reports generated yet.';
+                        tr.appendChild(td); reportsTbody.appendChild(tr); return;
+                    }
+                    reports.forEach(report => {
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `
+                            <td>${report.date || ''}</td>
+                            <td>${report.type || ''}</td>
+                            <td>${report.period || ''}</td>
+                            <td>${report.format || ''}</td>
+                            <td>
+                                <button class="btn btn-small" data-view-report="${report.id}">View</button>
+                            </td>`;
+                        reportsTbody.appendChild(tr);
+                    });
+
+                    // Add event listeners for view report buttons
+                    reportsTbody.querySelectorAll('[data-view-report]').forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const reportId = btn.getAttribute('data-view-report');
+                            const report = reports.find(r => r.id === reportId);
+                            if (report) {
+                                reportContent.innerHTML = JSON.stringify(report, null, 2);
+                                reportTitle.textContent = `Report for ${report.type} (${report.period})`;
+                                reportDate.textContent = `Generated on: ${report.date}`;
+                                reportPeriodDisplay.textContent = `Period: ${report.period}`;
+                                reportCard.style.display = 'block';
+                            }
+                        });
+                    });
+                } catch (e) {
+                    console.error('Error loading reports:', e);
+                }
+            }
+
+            function generateReportPreview(){
+                const type = reportTypeSelect?.value || 'attendance';
+                const period = reportPeriodSelect?.value || 'week';
+                const format = reportFormatSelect?.value || 'pdf';
+
+                let reportData = {};
+                let reportContent = '';
+
+                if (type === 'attendance') {
+                    reportData = {
+                        type: 'Attendance Report',
+                        period: period,
+                        date: new Date().toISOString().slice(0, 10),
+                        data: JSON.parse(localStorage.getItem('lecturerSessions') || '[]') // Assuming lecturerSessions contains all sessions
+                    };
+                    reportContent = JSON.stringify(reportData, null, 2);
+                } else if (type === 'academic') {
+                    reportData = {
+                        type: 'Academic Progress Report',
+                        period: period,
+                        date: new Date().toISOString().slice(0, 10),
+                        // This would require actual academic data from the student's courses
+                        // For now, a placeholder
+                        courses: [
+                            { name: 'Info Tech & App Dev', grade: 'B+', credits: 3 },
+                            { name: 'HCI', grade: 'A-', credits: 4 },
+                            { name: 'Web Dev', grade: 'C', credits: 3 }
+                        ]
+                    };
+                    reportContent = JSON.stringify(reportData, null, 2);
+                } else if (type === 'course') {
+                    reportData = {
+                        type: 'Course Summary Report',
+                        period: period,
+                        date: new Date().toISOString().slice(0, 10),
+                        // This would require actual course data and attendance for the period
+                        // For now, a placeholder
+                        courses: [
+                            { name: 'Info Tech & App Dev', totalSessions: 10, present: 8, absent: 2, attendanceRate: '80%' },
+                            { name: 'HCI', totalSessions: 12, present: 10, absent: 2, attendanceRate: '83%' }
+                        ]
+                    };
+                    reportContent = JSON.stringify(reportData, null, 2);
+                }
+
+                reportContent.innerHTML = JSON.stringify(reportData, null, 2);
+                reportTitle.textContent = `Report for ${type} (${period})`;
+                reportDate.textContent = `Generated on: ${new Date().toISOString().slice(0, 10)}`;
+                reportPeriodDisplay.textContent = `Period: ${period}`;
+                reportCard.style.display = 'block';
+            }
+
+            generateReportBtn?.addEventListener('click', generateReportPreview);
+
+            // Add export functionality
+            function exportReportPdf() {
+                const reportCard = document.getElementById('report-card');
+                if (reportCard.style.display === 'none') {
+                    alert('Please generate a report first.');
+                    return;
+                }
+                
+                const opt = {
+                    margin: 1,
+                    filename: `student_report_${new Date().toISOString().slice(0, 10)}.pdf`,
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2 },
+                    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                };
+                
+                html2pdf().set(opt).from(reportCard).save();
+            }
+
+            function exportReportWord() {
+                const reportCard = document.getElementById('report-card');
+                if (reportCard.style.display === 'none') {
+                    alert('Please generate a report first.');
+                    return;
+                }
+                
+                const { Document, Packer, Paragraph, TextRun } = docx;
+                
+                const doc = new Document({
+                    sections: [{
+                        properties: {},
+                        children: [
+                            new Paragraph({
+                                children: [
+                                    new TextRun({
+                                        text: document.getElementById('report-title').textContent,
+                                        bold: true,
+                                        size: 24
+                                    })
+                                ]
+                            }),
+                            new Paragraph({
+                                children: [
+                                    new TextRun({
+                                        text: document.getElementById('report-content').textContent,
+                                        size: 12
+                                    })
+                                ]
+                            })
+                        ]
+                    }]
+                });
+                
+                Packer.toBlob(doc).then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `student_report_${new Date().toISOString().slice(0, 10)}.docx`;
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                });
+            }
+
+            // Add export buttons to the report preview
+            const reportActions = document.createElement('div');
+            reportActions.className = 'report-actions';
+            reportActions.innerHTML = `
+                <button class="btn" onclick="exportReportPdf()">
+                    <i class="fas fa-file-pdf"></i>
+                    Download PDF
+                </button>
+                <button class="btn" onclick="exportReportWord()">
+                    <i class="fas fa-file-word"></i>
+                    Download Word
+                </button>
+            `;
+            
+            // Insert the actions after the report content
+            const reportContentElement = document.getElementById('report-content');
+            if (reportContentElement && reportContentElement.parentNode) {
+                reportContentElement.parentNode.insertBefore(reportActions, reportContentElement.nextSibling);
+            }
+
+            // ===== Settings Management =====
+            const studentThemeSelect = document.getElementById('student-theme');
+            const studentLanguageSelect = document.getElementById('student-language');
+            const studentTimezoneSelect = document.getElementById('student-timezone');
+            const notifyAttendanceCheckbox = document.getElementById('notify-attendance');
+            const notifyCoursesCheckbox = document.getElementById('notify-courses');
+            const notifyDeadlinesCheckbox = document.getElementById('notify-deadlines');
+            const notifyGradesCheckbox = document.getElementById('notify-grades');
+            const scannerCameraSelect = document.getElementById('scanner-camera');
+            const scannerQualitySelect = document.getElementById('scanner-quality');
+            const autoScanCheckbox = document.getElementById('auto-scan');
+            const soundEffectsCheckbox = document.getElementById('sound-effects');
+            const vibrateOnScanCheckbox = document.getElementById('vibrate-on-scan');
+            const exportStudentDataBtn = document.getElementById('export-student-data');
+            const importStudentDataBtn = document.getElementById('import-student-data');
+            const clearStudentDataBtn = document.getElementById('clear-student-data');
+            const currentPasswordInput = document.getElementById('current-password');
+            const newPasswordInput = document.getElementById('new-password');
+            const confirmPasswordInput = document.getElementById('confirm-password');
+            const changePasswordBtn = document.getElementById('change-password-btn');
+            const importFileInput = document.getElementById('import-file');
+
+            function loadSettings(){
+                try {
+                    const profile = JSON.parse(localStorage.getItem('studentProfile') || '{}');
+                    studentThemeSelect.value = profile.theme || 'light';
+                    studentLanguageSelect.value = profile.language || 'en';
+                    studentTimezoneSelect.value = profile.timezone || 'Africa/Johannesburg';
+                    notifyAttendanceCheckbox.checked = profile.notifyAttendance || true;
+                    notifyCoursesCheckbox.checked = profile.notifyCourses || true;
+                    notifyDeadlinesCheckbox.checked = profile.notifyDeadlines || true;
+                    notifyGradesCheckbox.checked = profile.notifyGrades || false;
+                    scannerCameraSelect.value = profile.scannerCamera || 'auto';
+                    scannerQualitySelect.value = profile.scannerQuality || 'medium';
+                    autoScanCheckbox.checked = profile.autoScan || true;
+                    soundEffectsCheckbox.checked = profile.soundEffects || true;
+                    vibrateOnScanCheckbox.checked = profile.vibrateOnScan || true;
+
+                    // Add event listeners for settings checkboxes/selects
+                    notifyAttendanceCheckbox.addEventListener('change', saveSettings);
+                    notifyCoursesCheckbox.addEventListener('change', saveSettings);
+                    notifyDeadlinesCheckbox.addEventListener('change', saveSettings);
+                    notifyGradesCheckbox.addEventListener('change', saveSettings);
+                    scannerCameraSelect.addEventListener('change', saveSettings);
+                    scannerQualitySelect.addEventListener('change', saveSettings);
+                    autoScanCheckbox.addEventListener('change', saveSettings);
+                    soundEffectsCheckbox.addEventListener('change', saveSettings);
+                    vibrateOnScanCheckbox.addEventListener('change', saveSettings);
+
+                    // Add event listeners for password change
+                    changePasswordBtn?.addEventListener('click', () => {
+                        const current = currentPasswordInput.value.trim();
+                        const newPass = newPasswordInput.value.trim();
+                        const confirm = confirmPasswordInput.value.trim();
+
+                        if (!current) {
+                            alert('Please enter your current password.');
+                            return;
+                        }
+                        if (!newPass) {
+                            alert('New password cannot be empty.');
+                            return;
+                        }
+                        if (newPass !== confirm) {
+                            alert('New passwords do not match.');
+                            return;
+                        }
+
+                        // Simulate password change
+                        if (current === 'password123') { // Replace with actual password check
+                            alert('Password changed successfully!');
+                            // In a real app, you'd save the new password to localStorage
+                            // localStorage.setItem('studentProfile', JSON.stringify({ ...profile, password: newPass }));
+                        } else {
+                            alert('Incorrect current password.');
+                        }
+                    });
+
+                    // Add event listeners for file imports/exports
+                    exportStudentDataBtn?.addEventListener('click', () => {
+                        const data = JSON.stringify(JSON.parse(localStorage.getItem('studentProfile') || '{}'), null, 2);
+                        const blob = new Blob([data], { type: 'application/json' });
+                        const a = document.createElement('a');
+                        a.href = URL.createObjectURL(blob);
+                        a.download = 'student_profile.json';
+                        a.click();
+                        URL.revokeObjectURL(a.href);
+                    });
+
+                    importStudentDataBtn?.addEventListener('change', (e) => {
+                        const file = e.target.files[0];
+                        if (file) {
+                            const reader = new FileReader();
+                            reader.onload = (event) => {
+                                try {
+                                    const importedData = JSON.parse(event.target.result);
+                                    if (importedData.name && importedData.email) {
+                                        localStorage.setItem('studentProfile', JSON.stringify(importedData));
+                                        loadStudentProfile();
+                                        alert('Profile data imported successfully!');
+                                    } else {
+                                        alert('Imported file does not contain valid profile data.');
+                                    }
+                                } catch (error) {
+                                    alert('Error importing data: ' + error.message);
+                                }
+                            };
+                            reader.readAsText(file);
+                        }
+                    });
+
+                    clearStudentDataBtn?.addEventListener('click', () => {
+                        if (confirm('Are you sure you want to clear all data? This action cannot be undone.')) {
+                            localStorage.clear();
+                            alert('All data cleared successfully!');
+                            location.reload(); // Reload to show default values
+                        }
+                    });
+                } catch (e) {
+                    console.error('Error loading settings:', e);
+                }
+            }
+
+            function saveSettings(){
+                const profile = JSON.parse(localStorage.getItem('studentProfile') || '{}');
+                profile.theme = studentThemeSelect.value;
+                profile.language = studentLanguageSelect.value;
+                profile.timezone = studentTimezoneSelect.value;
+                profile.notifyAttendance = notifyAttendanceCheckbox.checked;
+                profile.notifyCourses = notifyCoursesCheckbox.checked;
+                profile.notifyDeadlines = notifyDeadlinesCheckbox.checked;
+                profile.notifyGrades = notifyGradesCheckbox.checked;
+                profile.scannerCamera = scannerCameraSelect.value;
+                profile.scannerQuality = scannerQualitySelect.value;
+                profile.autoScan = autoScanCheckbox.checked;
+                profile.soundEffects = soundEffectsCheckbox.checked;
+                profile.vibrateOnScan = vibrateOnScanCheckbox.checked;
+
+                localStorage.setItem('studentProfile', JSON.stringify(profile));
+                alert('Settings saved successfully!');
+            }
+
+
+
+            // Initialize
+            loadStudentProfile();
+            populateCourseOptions();
+            renderCalendar();
+            renderEvents();
+            loadAttendanceStats();
+            loadAttendanceRecords();
+            loadReports();
+            generateReportPreview();
+            loadSettings();
+            
+            // Set up periodic refresh of admin events (every 30 seconds)
+            setTimeout(() => {
+                setInterval(refreshAdminEvents, 30000);
+            }, 5000); // Start after 5 seconds
+        });
+
+        // Enhanced QR Code and Course Management
+        class EnhancedQRManager {
+            constructor() {
+                this.courseSessions = new Map();
+                this.selectedCourse = null;
+                this.init();
+            }
+            
+            init() {
+                this.loadCourseSessions();
+                this.setupEventListeners();
+                this.startStatusUpdates();
+            }
+            
+            loadCourseSessions() {
+                // Load course sessions from localStorage (shared with lecturer)
+                const sessions = JSON.parse(localStorage.getItem('courseSessions') || '[]');
+                this.courseSessions.clear();
+                
+                sessions.forEach(session => {
+                    if (!this.courseSessions.has(session.courseCode)) {
+                        this.courseSessions.set(session.courseCode, []);
+                    }
+                    this.courseSessions.get(session.courseCode).push(session);
+                });
+                
+                this.updateCourseDisplay();
+            }
+            
+            setupEventListeners() {
+                // Course selection change
+                const courseSelect = document.getElementById('scanner-course-select');
+                if (courseSelect) {
+                    courseSelect.addEventListener('change', (e) => {
+                        this.selectedCourse = e.target.value;
+                        this.updateQRStatus();
+                        this.updateCourseInfo();
+                    });
+                }
+                
+                // Enhanced course option selection
+                document.addEventListener('click', (e) => {
+                    if (e.target.closest('.course-option')) {
+                        const courseOption = e.target.closest('.course-option');
+                        const courseCode = courseOption.dataset.courseCode;
+                        
+                        // Update selection
+                        document.querySelectorAll('.course-option').forEach(opt => 
+                            opt.classList.remove('selected'));
+                        courseOption.classList.add('selected');
+                        
+                        // Update course select
+                        if (courseSelect) {
+                            courseSelect.value = courseCode;
+                            courseSelect.dispatchEvent(new Event('change'));
+                        }
+                    }
+                });
+                
+                // Scan now buttons
+                document.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('btn-scan-now')) {
+                        const courseCode = e.target.dataset.courseCode;
+                        this.startScanning(courseCode);
+                    }
+                });
+            }
+            
+            updateCourseDisplay() {
+                // Update course select options
+                const courseSelect = document.getElementById('scanner-course-select');
+                if (!courseSelect) return;
+                
+                // Clear existing options
+                courseSelect.innerHTML = '<option value="">Select a course to scan QR code for</option>';
+                
+                // Add course options with QR status
+                this.courseSessions.forEach((sessions, courseCode) => {
+                    const option = document.createElement('option');
+                    option.value = courseCode;
+                    
+                    const activeSessions = sessions.filter(s => 
+                        new Date(s.expiryTime) > new Date() && s.status === 'active');
+                    
+                    if (activeSessions.length > 0) {
+                        option.textContent = `${courseCode} - QR Available (${activeSessions.length} active)`;
+                    } else {
+                        option.textContent = `${courseCode} - No QR Available`;
+                    }
+                    
+                    courseSelect.appendChild(option);
+                });
+                
+                // Update enhanced course options display
+                this.updateEnhancedCourseOptions();
+            }
+            
+            updateEnhancedCourseOptions() {
+                const container = document.querySelector('.course-options');
+                if (!container) return;
+                
+                container.innerHTML = '';
+                
+                this.courseSessions.forEach((sessions, courseCode) => {
+                    const activeSessions = sessions.filter(s => 
+                        new Date(s.expiryTime) > new Date() && s.status === 'active');
+                    
+                    const option = document.createElement('div');
+                    option.className = 'course-option';
+                    option.dataset.courseCode = courseCode;
+                    
+                    const statusClass = activeSessions.length > 0 ? 'available' : 'none';
+                    const statusText = activeSessions.length > 0 ? 
+                        `${activeSessions.length} QR Available` : 'No QR Available';
+                    
+                    option.innerHTML = `
+                        <h6>${courseCode}</h6>
+                        <p>${this.getCourseName(courseCode)}</p>
+                        <span class="qr-status ${statusClass}">${statusText}</span>
+                    `;
+                    
+                    container.appendChild(option);
+                });
+            }
+            
+            updateQRStatus() {
+                const container = document.getElementById('qr-status-container');
+                if (!container || !this.selectedCourse) return;
+                
+                const sessions = this.courseSessions.get(this.selectedCourse) || [];
+                const activeSessions = sessions.filter(s => 
+                    new Date(s.expiryTime) > new Date() && s.status === 'active');
+                
+                if (activeSessions.length === 0) {
+                    container.innerHTML = `
+                        <div class="qr-placeholder">
+                            <i class="fas fa-qrcode"></i>
+                            <h5>No Active QR Codes</h5>
+                            <p>There are no active QR codes for ${this.selectedCourse} at the moment.</p>
+                            <small>Ask your lecturer to generate a new QR code for attendance.</small>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Display active QR codes
+                container.innerHTML = `
+                    <div class="qr-status-grid">
+                        ${activeSessions.map(session => this.createQRStatusCard(session)).join('')}
+                    </div>
+                `;
+            }
+            
+            createQRStatusCard(session) {
+                const expiryTime = new Date(session.expiryTime);
+                const timeLeft = this.getTimeLeft(expiryTime);
+                const isExpired = expiryTime <= new Date();
+                
+                let statusClass = 'active';
+                let statusText = 'Active';
+                
+                if (isExpired) {
+                    statusClass = 'expired';
+                    statusText = 'Expired';
+                } else if (session.status === 'closed') {
+                    statusClass = 'closed';
+                    statusText = 'Closed';
+                }
+                
+                return `
+                    <div class="qr-status-card ${statusClass}">
+                        <div class="qr-status-header">
+                            <h6>Session ${session.sessionId}</h6>
+                            <span class="qr-status-badge ${statusClass}">${statusText}</span>
+                        </div>
+                        <div class="qr-status-content">
+                            <div class="qr-status-item">
+                                <span class="label">Course:</span>
+                                <span class="value">${session.courseCode}</span>
+                            </div>
+                            <div class="qr-status-item">
+                                <span class="label">Created:</span>
+                                <span class="value">${new Date(session.createdTime).toLocaleTimeString()}</span>
+                            </div>
+                            <div class="qr-status-item">
+                                <span class="label">Expires:</span>
+                                <span class="value">${expiryTime.toLocaleTimeString()}</span>
+                            </div>
+                            <div class="qr-status-item">
+                                <span class="label">Time Left:</span>
+                                <span class="value">${timeLeft}</span>
+                            </div>
+                        </div>
+                        <div class="qr-status-actions">
+                            <button class="btn-scan-now" 
+                                    data-course-code="${session.courseCode}"
+                                    data-session-id="${session.sessionId}"
+                                    ${isExpired ? 'disabled' : ''}>
+                                ${isExpired ? 'Expired' : 'Scan Now'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            updateCourseInfo() {
+                const container = document.querySelector('.course-info');
+                if (!container || !this.selectedCourse) return;
+                
+                const sessions = this.courseSessions.get(this.selectedCourse) || [];
+                const totalSessions = sessions.length;
+                const activeSessions = sessions.filter(s => 
+                    new Date(s.expiryTime) > new Date() && s.status === 'active');
+                const completedSessions = sessions.filter(s => s.status === 'completed');
+                
+                container.innerHTML = `
+                    <div class="info-card">
+                        <h5>${this.selectedCourse} - ${this.getCourseName(this.selectedCourse)}</h5>
+                        <p>Course information and QR code status</p>
+                        <div class="course-stats">
+                            <div class="stat">
+                                <i class="fas fa-qrcode"></i>
+                                <span>Total Sessions: ${totalSessions}</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>Active QR: ${activeSessions.length}</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Completed: ${completedSessions.length}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            getTimeLeft(expiryTime) {
+                const now = new Date();
+                const diff = expiryTime - now;
+                
+                if (diff <= 0) return 'Expired';
+                
+                const minutes = Math.floor(diff / 60000);
+                const seconds = Math.floor((diff % 60000) / 1000);
+                
+                if (minutes > 0) {
+                    return `${minutes}m ${seconds}s`;
+                }
+                return `${seconds}s`;
+            }
+            
+            getCourseName(courseCode) {
+                // Map course codes to names (could be enhanced with a proper course database)
+                const courseNames = {
+                    'CS101': 'Introduction to Computer Science',
+                    'CS201': 'Data Structures and Algorithms',
+                    'CS301': 'Software Engineering',
+                    'MATH101': 'Calculus I',
+                    'PHYS101': 'Physics I'
+                };
+                
+                return courseNames[courseCode] || courseCode;
+            }
+            
+            startScanning(courseCode) {
+                // Set the selected course and start the scanner
+                if (courseCode) {
+                    const courseSelect = document.getElementById('scanner-course-select');
+                    if (courseSelect) {
+                        courseSelect.value = courseCode;
+                        courseSelect.dispatchEvent(new Event('change'));
+                    }
+                }
+                
+                // Start the QR scanner
+                this.startScanner();
+            }
+            
+            startScanner() {
+                // Implementation for starting the QR scanner
+                console.log('Starting QR scanner for course:', this.selectedCourse);
+                
+                // Show scanner interface
+                const scannerSection = document.getElementById('qrcodescanner');
+                if (scannerSection) {
+                    scannerSection.style.display = 'block';
+                }
+                
+                // Initialize camera and scanner (existing functionality)
+                // This would integrate with your existing QR scanner code
+            }
+            
+            selectCourse(courseCode) {
+                // Select a course programmatically (e.g., from notifications)
+                this.selectedCourse = courseCode;
+                
+                // Update course select dropdown
+                const courseSelect = document.getElementById('scanner-course-select');
+                if (courseSelect) {
+                    courseSelect.value = courseCode;
+                }
+                
+                // Update enhanced course options
+                document.querySelectorAll('.course-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                    if (opt.dataset.courseCode === courseCode) {
+                        opt.classList.add('selected');
+                    }
+                });
+                
+                // Update displays
+                this.updateQRStatus();
+                this.updateCourseInfo();
+                
+                // Show the QR scanner section
+                const scannerSection = document.getElementById('qrcodescanner');
+                if (scannerSection) {
+                    scannerSection.style.display = 'block';
+                }
+                
+                // Scroll to scanner section
+                scannerSection?.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            startStatusUpdates() {
+                // Update status every 30 seconds
+                setInterval(() => {
+                    this.loadCourseSessions();
+                    if (this.selectedCourse) {
+                        this.updateQRStatus();
+                    }
+                }, 30000);
+            }
+        }
+        
+        // Initialize enhanced QR manager when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize existing functionality
+            initializeStudentInterface();
+            
+            // Initialize enhanced QR manager
+            window.enhancedQRManager = new EnhancedQRManager();
+        });
+
+        // Real-time notification system for new QR codes
+        class SessionNotificationManager {
+            constructor() {
+                this.notifications = [];
+                this.init();
+            }
+            
+            init() {
+                this.setupNotificationListener();
+                this.createNotificationContainer();
+                this.checkForNewSessions();
+            }
+            
+            setupNotificationListener() {
+                // Listen for storage changes (new sessions from lecturer)
+                window.addEventListener('storage', (e) => {
+                    if (e.key === 'courseSessions') {
+                        this.handleSessionUpdate();
+                    } else if (e.key === 'sessionNotification') {
+                        this.handleNewSessionNotification();
+                    }
+                });
+                
+                // Also listen for local events
+                window.addEventListener('storage', (e) => {
+                    if (e.key === 'courseSessions') {
+                        this.handleSessionUpdate();
+                    }
+                });
+            }
+            
+            createNotificationContainer() {
+                // Create notification container if it doesn't exist
+                if (!document.getElementById('notification-container')) {
+                    const container = document.createElement('div');
+                    container.id = 'notification-container';
+                    container.className = 'notification-container';
+                    document.body.appendChild(container);
+                }
+            }
+            
+            handleSessionUpdate() {
+                // Reload course sessions and check for new ones
+                if (window.enhancedQRManager) {
+                    window.enhancedQRManager.loadCourseSessions();
+                }
+            }
+            
+            handleNewSessionNotification() {
+                try {
+                    const notification = JSON.parse(localStorage.getItem('sessionNotification'));
+                    if (notification && notification.type === 'newSession') {
+                        this.showNewSessionNotification(notification);
+                    }
+                } catch (e) {
+                    console.warn('Failed to parse session notification:', e);
+                }
+            }
+            
+            showNewSessionNotification(notification) {
+                const container = document.getElementById('notification-container');
+                if (!container) return;
+                
+                const notificationElement = document.createElement('div');
+                notificationElement.className = 'session-notification new-session';
+                notificationElement.innerHTML = `
+                    <div class="notification-content">
+                        <div class="notification-icon">
+                            <i class="fas fa-qrcode"></i>
+                        </div>
+                        <div class="notification-text">
+                            <h6>New QR Code Available!</h6>
+                            <p>A new attendance QR code is now available for ${notification.courseCode}</p>
+                            <small>Session ID: ${notification.sessionId}</small>
+                        </div>
+                        <button class="notification-close" onclick="this.parentElement.parentElement.remove()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="notification-actions">
+                        <button class="btn-scan-now" onclick="window.enhancedQRManager.startScanning('${notification.courseCode}')">
+                            Scan Now
+                        </button>
+                        <button class="btn-view-course" onclick="window.enhancedQRManager.selectCourse('${notification.courseCode}')">
+                            View Course
+                        </button>
+                    </div>
+                `;
+                
+                container.appendChild(notificationElement);
+                
+                // Auto-remove after 10 seconds
+                setTimeout(() => {
+                    if (notificationElement.parentElement) {
+                        notificationElement.remove();
+                    }
+                }, 10000);
+                
+                // Play notification sound (optional)
+                this.playNotificationSound();
+            }
+            
+            checkForNewSessions() {
+                // Check for new sessions every 30 seconds
+                setInterval(() => {
+                    this.checkForNewSessionsPeriodically();
+                }, 30000);
+            }
+            
+            checkForNewSessionsPeriodically() {
+                try {
+                    const courseSessions = JSON.parse(localStorage.getItem('courseSessions') || '[]');
+                    const activeSessions = courseSessions.filter(s => 
+                        s.status === 'active' && 
+                        new Date(s.createdTime) > new Date(Date.now() - 60000) // Created in last minute
+                    );
+                    
+                    activeSessions.forEach(session => {
+                        // Check if we've already notified about this session
+                        if (!this.notifications.includes(session.sessionId)) {
+                            this.notifications.push(session.sessionId);
+                            this.showNewSessionNotification({
+                                type: 'newSession',
+                                courseCode: session.courseCode,
+                                sessionId: session.sessionId,
+                                timestamp: session.createdTime
+                            });
+                        }
+                    });
+                } catch (e) {
+                    console.warn('Failed to check for new sessions:', e);
+                }
+            }
+            
+            playNotificationSound() {
+                // Optional: Play a notification sound
+                // This could be enhanced with actual audio files
+                console.log('Notification sound played');
+            }
+        }
+        
+        // Initialize notification manager when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize existing functionality
+            initializeStudentInterface();
+            
+            // Initialize enhanced QR manager
+            window.enhancedQRManager = new EnhancedQRManager();
+            
+            // Initialize notification manager
+            window.sessionNotificationManager = new SessionNotificationManager();
+        });
+
+        // Show notification message
+        function showNotification(message, type = 'info') {
+            // Remove existing notification if any
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <span class="notification-message">${message}</span>
+                    <button class="notification-close">&times;</button>
+                </div>
+            `;
+            
+            // Add to body
+            document.body.appendChild(notification);
+            
+            // Show notification
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                hideNotification(notification);
+            }, 5000);
+            
+            // Close button functionality
+            const closeBtn = notification.querySelector('.notification-close');
+            closeBtn.addEventListener('click', () => {
+                hideNotification(notification);
+            });
+        }
+
+        // Hide notification
+        function hideNotification(notification) {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
+        }
+
+        // Mobile sidebar functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('sidebar-toggle').addEventListener('click', function() {
+                const sidebar = document.getElementById('sidebar2');
+                sidebar.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            });
+            
+            document.getElementById('sidebar-close').addEventListener('click', function() {
+                const sidebar = document.getElementById('sidebar2');
+                sidebar.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            });
+            
+            // Close sidebar when clicking outside
+            document.getElementById('sidebar2').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Close sidebar on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    const sidebar = document.getElementById('sidebar2');
+                    if (sidebar.classList.contains('active')) {
+                        sidebar.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
